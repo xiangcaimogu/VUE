@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+</div>
+</body>
+<script>
+    // var MyHeader={//声明的子组件们
+    //     template:'<div>我石头部</div>'
+    // }
+    var MyHeader=Vue.extend({//函数声明子组件的方式
+        template:'<div>我是函数调用的方式头部</div>'
+    })
+    //语法糖
+    var MyBody={
+        template:'<div>我石中部</div>'
+    }
+    var MyFooter={
+        template:'<div><button @click="showNumber(123)">点我</button></div>',
+        methods:{
+            showNumber:function (num) {
+                alert(num)
+            }
+        }
+    }
+    //声明入口组件
+    var App={//这是Vue的子组件，同时也是下层组件的父级
+        components:{//声明需要的组件们
+            'my-header':MyHeader,
+            'my-body':MyBody,
+            'my-footer':MyFooter
+        },
+        template:'<div>' +
+        '           <my-header></my-header>' +
+        '           <my-body></my-body>' +
+        '           <my-footer></my-footer>' +
+        '         </div>'//组件入口
+    };
+
+    new Vue({
+        el: "#app",
+        components:{//声明要用的组件们
+            //key是组件名，value是组件对象
+            app:App
+        },
+        template:'<app/>'//组件入口
+    });
+</script>
+</html>

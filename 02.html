@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        template: '<div>' +
+                '<span v-text="myText"></span>' +
+                '<span v-html="myHtml"></span>' +
+                // '<button v-if="isTrue">显示1</button>' +
+                '<button v-if="num==1">显示1</button>' +
+                '<button v-else-if="num==2">显示2</button>' +
+                '<button v-else>显示3</button>' +
+                '<button v-show="iston">显示隐藏</button>' +
+        '</div>\n',
+        //动态数据的声明
+        data: function () {//也可以是变量
+            return {
+                //template中使用的数据
+                myText: "hello word",
+                myHtml:'<h1>hello word</h1>',
+                isTrue:true,
+                num:2,
+                iston:true,
+            }
+        }
+    })
+</script>
+</html>
