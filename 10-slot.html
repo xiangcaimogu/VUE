@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+</div>
+
+</body>
+<script>
+    var App = {
+        template: '<div>' +
+        '           <input type="text" v-model="a">' +
+        '           <input type="text" v-model="b">' +
+        '           <input type="text" v-model="c">' +
+        '         {{result}}</div>',
+        data: function () {
+            return {
+                a: 0,
+                b: 0,
+                c: 0,
+            }
+        },
+        computed: {
+            result: function () {
+                return this.a + this.b + this.c
+            }
+        }
+    };
+    new Vue({
+        //data就不在这个组件对象中写了（启动组件）
+        el: "#app",
+        components: {//声明要用的组件们
+            //key是组件名，value是组件对象
+            app: App
+        },
+        template: '<app/>'//组件入口
+    });
+</script>
+</html>
