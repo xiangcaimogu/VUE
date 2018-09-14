@@ -11,58 +11,34 @@
 
 </body>
 <script>
-  var Son={
-      template:`<div>
-          <h1 v-if="qwe">1</h1>
-          <h1 v-show="qwe">2</h1>
-          <ul>
-              <li v-for="stu in ['小三','小四']">{{stu}}</li>
-          </ul>
-          <button>{{title}}</button><br/>
-          单项数据流
-          <input type="text" :value="ext"><br/>
-          双向数据里
-          <input type="text" v-model="ext">
-          <h1>主要看这里</h1>
-          {{ext}}
-          <hr/>
-
-      </div>`,
-      props:['title'],
-      data:function () {
-          return{
-              qwe:true,
-              ext:'hello'
-          }
-      },
-      methods:{
-          changeQwe:function () {
-              this.qwe=!this.qwe
-          }
-      }
-  }
-    var App={//这是Vue的子组件，同时也是下层组件的父级
-        components:{//声明需要的组件们
-            'my-son':Son,
+    var App = {
+        template: '<div>' +
+        '           <input type="text" v-model="myText">' +
+        '{{myText | reverse("英文版")}}' +//后面的括号是添加的参数对应下面的lang参数
+        '         </div>',
+        data: function () {
+            return {
+                myText: '我是中国人'
+            }
         },
-        template:'<div>' +
-        '           <my-son :title="asd"></my-son>' +
-        '         </div>',//组件入口
-        data:function () {
-            return{
-                asd:'我是中国人'
+        filters: {
+            reverse: function (dataStrt, lang) {
+                //字符串变成数组，在反转，再变成字符串
+                return lang + ':' + dataStrt.split('').reverse().join('')
             }
         }
     };
-
+    Vue.filter('myreverse', function (data, msg) {//全局过滤器
+        return 'zhuchuanhuan'
+    })
     new Vue({
         //data就不在这个组件对象中写了（启动组件）
         el: "#app",
-        components:{//声明要用的组件们
+        components: {//声明要用的组件们
             //key是组件名，value是组件对象
-            app:App
+            app: App
         },
-        template:'<app/>'//组件入口
+        template: '<app/>'//组件入口
     });
 </script>
 </html>

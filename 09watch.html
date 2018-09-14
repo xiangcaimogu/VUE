@@ -14,23 +14,19 @@
     var App = {
         template: '<div>' +
         '           <input type="text" v-model="myText">' +
-        '{{myText | reverse("英文版")}}' +//后面的括号是添加的参数对应下面的lang参数
         '         </div>',
         data: function () {
             return {
                 myText: '我是中国人'
-            }
-        },
-        filters: {
-            reverse: function (dataStrt, lang) {
-                //字符串变成数组，在反转，再变成字符串
-                return lang + ':' + dataStrt.split('').reverse().join('')
+            },
+                watch:{
+                myText:function (newV,oldV) {
+                    console.log(newV)
+                    console.log(oldV)
+                }
             }
         }
     };
-    Vue.filter('myreverse', function (data, msg) {//全局过滤器
-        return 'zhuchuanhuan'
-    })
     new Vue({
         //data就不在这个组件对象中写了（启动组件）
         el: "#app",
