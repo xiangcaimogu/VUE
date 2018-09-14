@@ -20,21 +20,23 @@
         )
     var App = {
         template: '<div>' +
-            '           <temp ref="tmp"></temp>'+
-        '               <button ref="btn">我是按钮</button>'+
+            '<input type="text" v-if="isShow" ref="put">'+
         '           </div>',
-        beforeCreate: function () {//这里不能拿到数据，只能初始化事件
-            console.log(this.$refs.btn)
-        },
-        created: function () {//拿到data
-            console.log(this.$refs.btn)
-        },
-        beforeMount: function () {//发生装载 替换<div id="app"></div>之前
-            console.log(this.$refs.btn)
-        },
+       data:function(){
+            return{
+                isShow:false,
+            }
+           },
         mounted: function () {//装载之后
-            console.log(this.$refs.btn)
-            console.log(this.$refs.tmp)
+
+           this.isShow=true;
+           this.isShow=false;
+           this.isShow=true;
+           //这里思考，这里Vue会根据最终的实际值，进行DOM的操作
+
+           this.$nextTick(function () {//页面vue真正渲染DOM到页面以后，才做的事
+               this.$refs.put.focus()
+           })
         },
     };
     new Vue({

@@ -36,43 +36,45 @@
                 text: 'hello word'
             }
         },
-
+        //只要使用该组件，就会触发以上事件函数
+        //使用该组件，就会触发以上的钩子函数，created中可以操作数据，并且刷新到页面，应用：发起ajax的请求
         beforeCreate: function () {//组件创建之前
             console.log(this.text)
         },
-        created: function () {//使用该组件，就会触发以上的钩子函数，created中可以操作数据，并且刷新到页面，应用：发起ajax的请求
+        created: function () {//组件创建之后，获得组件数据
             console.log(this.text)
         },
 
 
-        beforeMount: function () {//vue起作用，装载数据之前的DOM页面
-            // console.log(document.body.innerHTML)
-            console.log('beforeMount')
-        },
-        mounted: function () {
-            // console.log(document.body.innerHTML)
-            console.log('mounted')
-        },
-
-        // 基于数据改变
-        beforeUpdate: function () {//数据改变之前
-            console.log(document.body.innerHTML)
-        },
-        updated: function () {
-            console.log(document.body.innerHTML)
-        },
-
-
-
-        //对应父组件 v-if flase,就销毁当前组件
-        //销毁，最终都是做一些其他功能，比如localStorage
-        beforeDestroy: function () {//销毁之前
-            console.log(this.text)
-        },
-        destroyed: function () {
-            console.log(this.text)
-        },
-        activated: function () {
+        // beforeMount: function () {//vue起作用，装载数据之前的DOM页面<div id="app"></div>
+        //     console.log(document.body.innerHTML)
+        //     // console.log('beforeMount')
+        // },
+        // mounted: function () {//装载数据之后的DOM页面div><div>我是test组件hello word<button>点击</button></div><button>点击子组件消失</button></div>
+        //     console.log(document.body.innerHTML)
+        //     // console.log('mounted')
+        // },
+        //
+        // // 基于数据改变，影响页面，
+        // beforeUpdate: function () {//数据改变之前
+        //     console.log(document.body.innerHTML)
+        // },
+        // updated: function () {
+        //     console.log(document.body.innerHTML)
+        // },
+        //
+        //
+        //
+        // //对应父组件 v-if flase,就销毁当前组件
+        // //销毁，最终都是做一些其他功能，比如localStorage
+        //和创建组件对应一起看事件钩子
+        // beforeDestroy: function () {//销毁之前
+        //     console.log(this.text)
+        // },
+        // destroyed: function () {
+        //     console.log(this.text)
+        // },
+        activated: function () {//v-if时：只有被组件<keep-alive>包裹的组件，会触发激活和停用的事件函数，没有包裹就会从新创建create
             console.log('组件被激活')
         },
         deactivated: function () {
@@ -86,8 +88,8 @@
             test: Test
         },
         template: '<div>' +
-        '<keep-alive>' +//内置组件，保持组件消失生命
-            '<test v-if="isExist"></test>' +
+        '<keep-alive>' +//内置组件，保持组件消失生命，如果频繁的销毁在创建是不合理的，所以加这个组件，缓存这个组件的生命，不销毁在创建，只有激活和停用
+        '<test v-if="isExist"></test>' +
         '</keep-alive>' +
         '<button @click="isExist=!isExist">点击子组件消失</button>' +
         '           </div>',
