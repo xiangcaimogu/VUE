@@ -12,11 +12,19 @@
 <script>
     var Login = {
         template: '' +
-        '<h1>我是登录页</h1>'
+        '<h1>我是登录页</h1>',
+        created: function () {
+            console.log(this.$route)//只读路由对象
+            console.log(this.$route.query)
+        }
     };
     var Register = {
         template: '' +
-        '<h1>我是注册页</h1>'
+        '<h1>我是注册页</h1>',
+        created: function () {
+            console.log(this.$route)
+            console.log(this.$route.params)
+        }
     }
     //1.安装插件
     Vue.use(VueRouter)
@@ -24,40 +32,35 @@
     var router = new VueRouter({
         //3.配置路由对象
         routes: [{
-            name:'login',
+            name: 'login',
             path: '/mylogin',         //配置路径
             component: Login        //配置组件内容
-        },{
-            name:'register',
-            path: '/register',         //配置路径
+        }, {
+            name: 'register',
+            path: '/register/:name',         //配置路径
             component: Register        //配置组件内容
         },]
     })
 
     //5.指定路由改变局部的位置
     var App = {
-        template:`
+        template: `
         <div>
             <!---vue-router内置组件--->
-            <router-link :to="{name:'login'}">登录</router-link>
-            <router-link :to="{name:'login'}">登录</router-link>
-            <router-link :to="{name:'login'}">登录</router-link>
-            <router-link :to="{name:'register'}">注册</router-link>
-            <router-link :to="{name:'register'}">注册</router-link>
-            <router-link :to="{name:'register'}">注册</router-link>
+            <router-link :to="{name:'login',query:{id:1}   }">登录</router-link>
+            <router-link :to="{name:'register',params:{name:'abs'}  }">注册</router-link>
         <router-view></router-view>
         </div>`
     }
 
     //4.将配置好的路由对象关联到Vue实例中
-   var vm= new Vue({
+    new Vue({
         el: "#app",
-        router:router,//缺少这个出错匹配未定义 matched' of undefined"
+        router: router,//缺少这个出错匹配未定义 matched' of undefined"
         components: {
             app: App
         },
         template: '<app/>'
     });
-    console.log(vm)//vue-router中的对象$router只写入路由对象
 </script>
 </html>

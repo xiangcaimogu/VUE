@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script>
+    var isLogin = false;
+    var Login = {
+        template: '' +
+        '<h1>我是登录页</h1>',
+        created: function () {
+           isLogin = true;
+        }
+    };
+    var Music = {
+        template: '' +
+        '<h1>我是音乐主页</h1>'
+    }
+    //1.安装插件
+    Vue.use(VueRouter)
+    //2.创建一个路由对象
+    var router = new VueRouter()
+    //3.配置路由对象
+    router.addRoutes([
+        //默认重定向
+        {path:'/',redirect:{name:'login'}},
+        {
+            name: 'login',
+            path: '/mylogin',         //配置路径
+            component: Login        //配置组件内容
+        }, {
+            name: 'music',
+            path: '/music',         //配置路径
+            component: Music, //配置组件内容
+            meta: {isChecked: true}//给未来路由的权限控制，全局路由守卫，来做参照条件
+        }
+    ])
+    router.beforeEach(function (to, form, next) {
+        console.log(to)
+        console.log(form)
+        if (!to.meta.isChecked) {
+            next()
+        } else {
+            if (isLogin){
+               next()//放行
+            }else {
+                alert("先去登录")
+                //重定向url
+                next({name:'login'})
+            }
+        }
+    })
+
+
+    //5.指定路由改变局部的位置
+    var App = {
+        template: `
+        <div>
+            <!---vue-router内置组件--->
+            <router-link :to="{name:'login'}">登录</router-link>
+            <router-link :to="{name:'music'}">音乐</router-link>
+        <router-view></router-view>
+        </div>`
+    }
+
+    //4.将配置好的路由对象关联到Vue实例中
+    new Vue({
+        el: "#app",
+        router: router,//缺少这个出错匹配未定义 matched' of undefined"
+        components: {
+            app: App
+        },
+        template: '<app/>'
+    });
+</script>
+</html>
