@@ -13,7 +13,7 @@
     .A{
         background:red ;
     }.B{
-        background:black ;
+        background:blue ;
     }.C{
         background:yellow ;
     }
@@ -22,18 +22,19 @@
 <script>
     new Vue({
         el: "#app",
-        template:'<div><ul>' +
-        '<li v-for="k in mylist" :class="k.myClass">{{k.name}}</li>' +
-        '</ul>' +
+        template:'<div>' +
+        // '<ul>' +
+        // '<li v-for="k in mylist" :class="k.myClass">{{k.name}}</li>' +
+        // '</ul>' +
         '<ul>' +
-        '<li v-for="(vlue, key, index) in mylist2">{{vlue}}</li>' +
+        '<li v-for="(v, key, index) in mylist2">{{v}}</li>' +
         '</ul></div>',
         //v-for数组：（k ,index）in list
         //动态数据的声明
         data: function () {//也可以是变量
             return {
                 mylist: [{name:'张三',myClass:'A'},{name:'李四',myClass:'B'},{name:'王五',myClass:'C'}],
-                mylist2:{name:'a',name:'s',name:'d'}
+                mylist2:{'A':'a','S':'s','T':'t','D':'d','W':'w'}
             }
         }
     })

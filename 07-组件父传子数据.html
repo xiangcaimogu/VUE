@@ -26,13 +26,12 @@
           <h1>主要看这里</h1>
           {{ext}}
           <hr/>
-
       </div>`,
-      props:['title'],
+      props:['title'],//申明接受参数
       data:function () {
           return{
               qwe:true,
-              ext:'hello'
+              ext:'hello',
           }
       },
       methods:{
@@ -46,11 +45,12 @@
             'my-son':Son,
         },
         template:'<div>' +
-        '           <my-son :title="asd"></my-son>' +
+        // '           <my-son title="asd"></my-son>' +//v-bind给元素绑定静态值（常量）
+        '           <my-son v-bind:title="asd"></my-son>' +//v-bind给元素绑定动态prop
         '         </div>',//组件入口
         data:function () {
             return{
-                asd:'我是中国人'
+                asd:'外国人'
             }
         }
     };

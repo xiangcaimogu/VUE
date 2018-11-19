@@ -22,7 +22,9 @@
             }
         },
         methods: {
-            reverseMessage: function () {
+            reverseMessage: function (e) {
+                console.log(e)
+                console.log(this)//this对象里面包含了data函数return出去的对象。vue帮我处理了this指向，不再是触发reverseMessage事件的对象了
                 this.message = !this.message
             }
         }
