@@ -25,16 +25,15 @@
             }
         },
         computed: {
-            result: function () {
-                return this.a + this.b + this.c
+            result: function () {//凡是函数内部有this点相关属性改变都会触发当前函数
+                //监视对象写在了函数内部
+                return ((this.a-0) + (this.b-0) + (this.c-0))
             }
         }
     };
     new Vue({
-        //data就不在这个组件对象中写了（启动组件）
         el: "#app",
         components: {//声明要用的组件们
-            //key是组件名，value是组件对象
             app: App
         },
         template: '<app/>'//组件入口

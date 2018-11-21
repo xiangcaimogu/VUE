@@ -12,26 +12,34 @@
 </body>
 <script>
     var App = {
-        template: '<div>' +
-        '           <input type="text" v-model="myText">' +
-        '         </div>',
+        template: `<div>
+                       <input type="text" v-model="myText">
+                       <button @click="stus[0].name='rose'">监视复杂数据</button>
+                    </div>`,
         data: function () {
             return {
-                myText: '我是中国人'
+                myText: '我是中国人',
+                stus: [{name: 'jack'}]
+            }
+        },
+        watch: {
+            stus:{
+              deep:true,
+              handler:function (newV,oldV) {
+                  console.log(newV)
+                  console.log(oldV)
+                  console.log("监视复杂数据类型成功")
+              }
             },
-                watch:{
-                myText:function (newV,oldV) {
-                    console.log(newV)
-                    console.log(oldV)
-                }
+            myText: function (newV, oldV) {
+                console.log(newV)
+                console.log(oldV)
             }
         }
     };
     new Vue({
-        //data就不在这个组件对象中写了（启动组件）
         el: "#app",
         components: {//声明要用的组件们
-            //key是组件名，value是组件对象
             app: App
         },
         template: '<app/>'//组件入口
