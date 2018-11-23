@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script>
+    var App={
+        template:`
+        <div>
+            <button @click="sendAjax"></button>
+      </div>
+        `,
+        data:function () {
+            return{
+                p1:'',
+                p2:''
+            }
+        },
+        methods:{
+            sendAjax:function (){
+                //请求1 get 请求2 post /add
+                //this.$axios.get||.post(url,[post的时候的data]，options）
+
+                //options请求的配置
+                //配置公共信息
+                var that=this
+                this.$axios.defaults.baseURL='http://10.4.2.200';
+
+                var p1=this.axios.get('/upload')
+                var p2=this.axios.post('/upload/add','a=1')
+                this.$axios.all([p1,p2]).then(function (res1, res2) {
+                    that.p1=res1;
+                    that.p2=res2
+                })
+            }
+        }
+    }
+    Vue.prototype.$axios=axios
+    var vm=new Vue({
+        el:'#app',
+        components:{
+            app:App
+        },
+        template:'<app/>'
+    })
+</script>
+</html>

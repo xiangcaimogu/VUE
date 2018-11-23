@@ -12,15 +12,13 @@
 <script>
     var isLogin = false;
     var Login = {
-        template: '' +
-        '<h1>我是登录页</h1>',
+        template: `<h1>我是登录页</h1>`,
         created: function () {
            isLogin = true;
         }
     };
     var Music = {
-        template: '' +
-        '<h1>我是音乐主页</h1>'
+        template:`<h1>我是音乐主页</h1>`
     }
     //1.安装插件
     Vue.use(VueRouter)
@@ -28,16 +26,17 @@
     var router = new VueRouter()
     //3.配置路由对象
     router.addRoutes([
-        //默认重定向
+        // 默认重定向
         {path:'/',redirect:{name:'login'}},
         {
             name: 'login',
-            path: '/mylogin',         //配置路径
-            component: Login        //配置组件内容
-        }, {
+            path: '/login',
+            component: Login
+        },
+        {
             name: 'music',
-            path: '/music',         //配置路径
-            component: Music, //配置组件内容
+            path: '/music',
+            component: Music,
             meta: {isChecked: true}//给未来路由的权限控制，全局路由守卫，来做参照条件
         }
     ])
@@ -62,17 +61,15 @@
     var App = {
         template: `
         <div>
-            <!---vue-router内置组件--->
             <router-link :to="{name:'login'}">登录</router-link>
             <router-link :to="{name:'music'}">音乐</router-link>
         <router-view></router-view>
         </div>`
     }
-
     //4.将配置好的路由对象关联到Vue实例中
     new Vue({
         el: "#app",
-        router: router,//缺少这个出错匹配未定义 matched' of undefined"
+        router: router,
         components: {
             app: App
         },

@@ -24,7 +24,7 @@
     var router = new VueRouter({
         //3.配置路由对象
         routes: [{
-            name:'login',
+            name:'login',//有了name属性，router-link to属性指向name属性，更改配置路径path时就不需要touter-link to属性去更改路径了，
             path: '/mylogin',         //配置路径
             component: Login        //配置组件内容
         },{
