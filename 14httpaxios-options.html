@@ -32,6 +32,7 @@
                 var that=this
                 this.$axios.defaults.baseURL='http://10.4.2.200';
                 this.$axios.defaults.headers.accept='abc';
+                
                 var p1=this.axios.get('/upload')
                 var p2=this.axios.post('/upload/add','a=1')
                 this.$axios.all([p1,p2]).then(function (res1, res2) {
