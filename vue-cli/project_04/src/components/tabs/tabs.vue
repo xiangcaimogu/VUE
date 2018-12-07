@@ -1,13 +1,12 @@
 <template>
   <div class="tabs-fix">
     <el-menu
-      default-active="2"
+      default-active="dice"
       class="el-menu-vertical-demo"
       background-color="rgba(255, 255, 255, .2)"
       text-color="#fff"
       active-text-color="#fff"
       @select="handleSelect"
-      :default-active="this.$router.path"
       router
     >
       <el-menu-item index="dice">

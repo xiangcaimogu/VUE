@@ -1,7 +1,7 @@
 <template>
     <div class="currency-con">
       <el-row>
-        <el-button type="info" size="small">EOS</el-button>
+        <el-button autofocus type="info" size="small">EOS</el-button>
         <el-button type="info" size="small">DICE</el-button>
         <el-button type="info" size="small">BLACK</el-button>
         <el-button type="info" size="small">BT</el-button>

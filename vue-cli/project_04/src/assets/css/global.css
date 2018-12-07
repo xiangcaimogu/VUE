@@ -9,3 +9,46 @@ ul,ol {
 body {
   margin: 0px;
 }
+.center-view .touzhu .el-input__inner ,.center-view .touzhu .el-input-group__append {
+  border-radius: 0;
+  background-color: transparent;
+  border:none;
+}
+.custom-slider .el-slider__runway {
+  background-color: #cd0c26;
+  height: 14px;
+  border-radius: 8px;
+}
+.custom-slider .el-slider__bar {
+  background-color: #4CE8DE;
+  height: 14px;
+  border-radius: 8px;
+  webkit-box-shadow: 0 0 7px #4CE8DE;
+  box-shadow: 0 0 7px #4CE8DE;
+}
+.custom-slider .el-slider__button-wrapper {
+  top: -11px;
+}
+.custom-slider .el-slider__button {
+  width: 22px;
+  height: 22px;
+  border: none;
+}
+.custom-slider .el-slider__button.hover ,.custom-slider .el-slider__button.dragging {
+  transform: none;
+}
+.custom-slider .el-slider__button:after {
+   content: "";
+   display: block;
+   height: 28px;
+   width: 28px;
+   position: absolute;
+   left: 4px;
+   top: 4px;
+   border-radius: 50%;
+   -webkit-box-shadow: 0 0 12px #fff inset;
+   box-shadow: 0 0 12px #fff inset;
+}
+.custom-card-prompt .el-card__body {
+  padding: 8px 0 8px 120px;
+}
