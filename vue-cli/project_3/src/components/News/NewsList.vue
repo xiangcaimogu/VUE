@@ -1,13 +1,10 @@
 <template>
     <div class="tmp1">
-      <div class="cms-s-header">
-        <h1>&nbsp<</h1>
-        <h1 class="page-title">Pull up</h1>
-      </div>
+      <nav-bar title="新闻中心"></nav-bar>
       <div class="demo">
         <ul>
           <li v-for="news in newslist" :key="news.id">
-            <a href="#">
+            <router-link :to="{name:'news.detail',query:{id:news.id} }" >
               <img class="" :src="news.img_url" alt="">
               <div>
                 <span>{{news.title}}</span>
@@ -16,7 +13,7 @@
                   <p>发表时间：{{news.add_time | converTime('YYYYMMDD') }}</p>
                 </div>
               </div>
-            </a>
+            </router-link>
           </li>
           <li class="line"></li>
         </ul>

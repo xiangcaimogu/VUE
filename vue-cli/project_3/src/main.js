@@ -14,9 +14,11 @@ import "./assets/css/global.css"
 // 引入自己的ul和li组件
 import Myul from '@/components/common/myul'
 import Myli from '@/components/common/myli'
+import NavBar from '@/components/common/NavBar'
 // 注册全局组件
 Vue.component(Myul.name,Myul)
 Vue.component(Myli.name,Myli)
+Vue.component(NavBar.name,NavBar)
 
 // 定义mement全局日期过滤器
 import Moment from 'moment'

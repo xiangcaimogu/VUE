@@ -25,7 +25,7 @@ export default {
       imgs:[],
       grids:[
         {classname:'cms-news',title:'新闻资讯',router:{name:'news.list'}},
-        {classname:'cms-news',title:'图文分享',router:{name:'news.list'}},
+        {classname:'cms-news',title:'图文分享',router:{name:'photo.list',params:{categoryId:0}}},
         {classname:'cms-news',title:'商品展示',router:{name:'news.list'}},
         {classname:'cms-news',title:'留言反馈',router:{name:'news.list'}},
         {classname:'cms-news',title:'搜索资讯',router:{name:'news.list'}},
