@@ -1,21 +1,54 @@
 <template>
   <div>
-    <currency-group></currency-group>
+    <!--<currency-group></currency-group>-->
     <div class="center-view">
       <el-row :gutter="10">
-        <el-form ref="form" :model="form">
-          <el-col class="ctrl-board" :xs="24" :sm="13">
-          <el-row>
-            <el-col :span="15">
+        <el-col class="ctrl-board" :xs="24" :sm="13">
+          <el-form ref="form" :model="form">
+            <el-row>
+              <el-col :span="8">
+                <el-card class="card-message" shadow='never'>
+                  <span>小于改数获胜</span>
+                  <h1>48</h1>
+                </el-card>
+              </el-col>
+              <el-col :span="8">
+                <el-card class="card-message" shadow='never'>
+                  <span>赔率</span>
+                  <h1>2.005X</h1>
+                </el-card>
+              </el-col>
+              <el-col :span="8">
+                <el-card class="card-message" shadow='never'>
+                  <span>中奖概率</span>
+                  <h1>48%</h1>
+                </el-card>
+              </el-col>
+            </el-row>
+            <el-row>
+            <el-col :span="4">
               <el-form-item>
-                <div class="grid-content">投注金额</div>
+                <div class="grid-content">选择货币</div>
+                <el-select v-model="value" placeholder="请选择">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </el-form-item>
+            </el-col>
+            <el-col :offset="1" :span="12">
+              <el-form-item>
+                <div class="grid-content rank-img">投注金额</div>
                 <el-row class="touzhu">
-                  <el-col class="jine" :span="14">
+                  <el-col class="jine" :span="13">
                       <el-input size="small" v-model="input" placeholder="请输入内容">
                         <template slot="append">DICE</template>
                       </el-input>
                   </el-col>
-                  <el-col :span="10">
+                  <el-col :span="11">
                     <el-button-group>
                       <el-button size="small" >1/2</el-button>
                       <el-button size="small" >2X</el-button>
@@ -25,33 +58,13 @@
                 </el-row>
               </el-form-item>
             </el-col>
-              <el-col :offset="1" :span="8">
-              <div class="grid-content text-line">赢取奖金</div>
+            <el-col :offset="1" :span="6">
+              <div class="grid-content text-line money-img ">赢取奖金</div>
               <div class="touzhu">
                 <el-input size="small" v-model="input" disabled>
                   <template slot="append">DICE</template>
                 </el-input>
               </div>
-            </el-col>
-          </el-row>
-          <el-row>
-            <el-col :span="8">
-              <el-card class="card-message" shadow='never'>
-                <span>小于改数获胜</span>
-                <h1>48</h1>
-              </el-card>
-            </el-col>
-            <el-col :span="8">
-              <el-card class="card-message" shadow='never'>
-                <span>赔率</span>
-                <h1>2.005X</h1>
-              </el-card>
-            </el-col>
-            <el-col :span="8">
-              <el-card class="card-message" shadow='never'>
-                <span>中奖概率</span>
-                <h1>48%</h1>
-              </el-card>
             </el-col>
           </el-row>
           <el-form-item>
@@ -81,7 +94,7 @@
             </el-form-item>
           </div>
           <div class="custom-signon">
-            <el-button type="primary" round>
+            <el-button type="primary" style="width: 160px;">
               登录
             </el-button>
           </div>
@@ -104,20 +117,26 @@
               </el-row>
             </el-card>
           </div>
-        </el-col>
         </el-form>
+        </el-col>
         <el-col :xs="24" :sm="11">
           <div class="custom-ranking-box">
             <div class="custom-ranking-top">
-              <img src="" alt="">
+              <i class="fa fa-bar-chart" aria-hidden="true"></i>
               <span>每小时排行榜</span>
-                <el-button type="primary" circle icon="el-icon-arrow-left"></el-button>
-                <el-button type="primary" circle icon="el-icon-arrow-right"></el-button>
+              <div class="custom-button-ranking">
+                <el-button size="mini" circle icon="el-icon-arrow-left"></el-button>
+                <el-button size="mini" circle icon="el-icon-arrow-right"></el-button>
+              </div>
             </div>
             <el-table
               :data="tableData3"
-              height="500"
-              style="width: 100%">
+              height="516"
+              style="width: 100%;background-color:#1c233f "
+              :row-class-name="handleMyClass"
+              :header-cell-class-name="handleMyheaderClass"
+              :cell-class-name="handleCellClass"
+              >
               <el-table-column
                 prop="rank"
                 label="排名"
@@ -141,14 +160,17 @@
           </div>
         </el-col>
       </el-row>
-      <div>
+      <div class="custom-all-bets">
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="所有投注" name="first">
             <el-table
               :data="tableData2"
-              style="width: 100%"
+              style="width: 100% ;background-color:#1c233f "
               height="500"
-              :row-class-name="tableRowClassName">
+              :row-class-name="tableRowClassName"
+              :header-cell-class-name="handleMyheaderClass"
+              :cell-class-name="handleCellClass"
+            >
               <el-table-column
                 prop="date"
                 label="时间"
@@ -198,6 +220,66 @@ export default {
           duration: 0
         },
         tableData3: [{
+          rank: '',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        }, {
+          rank: '',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        }, {
+          rank: '',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        },{
+          rank: '1',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        }, {
+          rank: '1',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        }, {
+          rank: '1',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        },{
+          rank: '1',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        }, {
+          rank: '1',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        }, {
+          rank: '1',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        },{
+          rank: '1',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        }, {
+          rank: '1',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        }, {
+          rank: '1',
+          name: '王小虎',
+          date: '1250EOS',
+          address: '2EOS'
+        },{
           rank: '1',
           name: '王小虎',
           date: '1250EOS',
@@ -241,6 +323,14 @@ export default {
           address: '28.215EOS',
           money: '16.21TGC',
         }],
+        options: [{
+          value: '1',
+          label: 'EOS'
+        }, {
+          value: '2',
+          label: 'DICE'
+        }],
+        value: '1',
         form: {
           name: '',
           region: '',
@@ -263,7 +353,18 @@ export default {
       } else if (rowIndex === 3) {
         return 'success-row';
       }
-      return '';
+      return 'custom-row';
+    },
+    handleMyClass(row, rowIndex){
+      console.log(row,rowIndex)
+      return 'custom-row'
+    },
+    handleCellClass(row, rowIndex){
+      return 'custom-cell'
+    },
+
+    handleMyheaderClass (row, rowIndex){
+      return 'custom-header-row'
     },
     onSubmit() {
       console.log('submit!');
@@ -279,14 +380,22 @@ export default {
   position: relative;
 }
 .ctrl-board {
-  padding: 28px 0 50px;
+  padding: 50px 0;
   color: #ffffff;
 }
 .grid-content {
   font-size: 13px;
   color: #898a8c;
-  padding: 7px 0 4px;
-  padding-left: 33px;
+  padding: 7px 0px 4px 30px;
+  background-repeat: no-repeat;
+  background-size: 23px auto;
+  background-position:left ;
+}
+.rank-img {
+  background-image: url("../../assets/img/rank.png");
+}
+.money-img {
+  background-image: url("../../assets/img/money.png");
 }
 .el-table .warning-row {
   background: oldlace;
@@ -302,7 +411,7 @@ export default {
   height: 42px;
 }
 .jine {
-  padding-left: 40px;
+  padding-left: 0px;
 }
 .center-view .touzhu .el-button {
   background-color: #3b435c;
@@ -371,9 +480,21 @@ export default {
   font-size: 19px;
   padding: 19px 0;
   margin: 0;
+  position: relative;
 }
 .custom-ranking-box {
   margin-top: 50px;
+  padding-left: 16px;
   background-color: #1c233f
 }
+.custom-button-ranking {
+  position: absolute;
+  right: 60px;
+  top: 17px;
+}
+.custom-button-ranking .el-button {
+  background-color: transparent;
+  color: #fff;
+}
+
 </style>

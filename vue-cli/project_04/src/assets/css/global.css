@@ -52,3 +52,97 @@ body {
 .custom-card-prompt .el-card__body {
   padding: 8px 0 8px 120px;
 }
+.custom-row {
+  background-color: #171c32!important;
+  color: #ffffff!important;
+  text-align: center!important;
+}
+.custom-header-row {
+  background-color: #1c233f!important;
+  color: #ffffff!important;
+  text-align: center!important;
+}
+.custom-cell {
+  text-align: center!important;
+}
+.custom-ranking-box .el-table__body td {
+  border-bottom: 4px solid #1c233f!important;
+}
+.custom-ranking-box .el-table--enable-row-hover .el-table__body tr:hover>td , .custom-all-bets .el-table--enable-row-hover .el-table__body tr:hover>td{
+  background-color: #171c32 !important;
+}
+.el-table .warning-row {
+  background: #4C2D2E;
+  color: #fff;
+}
+.el-table .success-row {
+  background: #334E47;
+}
+.custom-all-bets .el-table__body td {
+  border-bottom: 0px solid #1c233f!important;
+}
+.custom-all-bets .el-tabs__item {
+  font-size: 18px;
+  font-weight: bold;
+}
+.custom-all-bets .el-tabs__nav-wrap::after {
+  background-color: #1c233f;
+}
+.custom-ranking-box .el-table td, .el-table th.is-leaf , .custom-all-bets .el-table td, .el-table th.is-leaf {
+  border-bottom: 1px solid #1c233f
+}
+.el-table::before {
+  background-color: #1c233f;
+}
+.ctrl-board .el-input__inner {
+  background-color: #3b435c;
+  color: #ffffff;
+  border: none;
+}
+/*.el-table--scrollable-y .el-table__body-wrapper {*/
+
+/*}*/
+.el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar {/*滚动条整体样式*/
+  width: 6px;     /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+.el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  background: #3C4771;
+}
+.el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-track {/*滚动条里面轨道*/
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background: #1C233F;
+}
+.custom-ranking-box .el-table th {
+  background-color: #1C233F;
+}
+.el-tabs__item:hover {
+  color: #fff;
+}
+.el-tabs__item.is-active {
+  color: #fff;
+}
+.el-tabs__active-bar {
+  background-color: white;
+}
+.custom-ranking-box .el-table tr:first-child td:first-child {
+  background-image: url("../../assets/img/one.png");
+  background-repeat: no-repeat;
+  background-size: 26px auto;
+  background-position:center ;
+}
+.custom-ranking-box .el-table tr:nth-child(2) td:first-child {
+  background-image: url("../../assets/img/two.png");
+  background-repeat: no-repeat;
+  background-size: 25px auto;
+  background-position:center ;
+}
+.custom-ranking-box .el-table tr:nth-child(3) td:first-child {
+  background-image: url("../../assets/img/three.png");
+  background-repeat: no-repeat;
+  background-size: 25px auto;
+  background-position:center ;
+}
