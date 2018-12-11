@@ -119,13 +119,13 @@ body {
 .custom-ranking-box .el-table th {
   background-color: #1C233F;
 }
-.el-tabs__item:hover {
+.custom-all-bets .el-tabs__item:hover {
   color: #fff;
 }
-.el-tabs__item.is-active {
+.custom-all-bets .el-tabs__item.is-active {
   color: #fff;
 }
-.el-tabs__active-bar {
+.custom-all-bets .el-tabs__active-bar {
   background-color: white;
 }
 .custom-ranking-box .el-table tr:first-child td:first-child {

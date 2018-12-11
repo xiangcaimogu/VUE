@@ -15,14 +15,8 @@ import 'font-awesome/css/font-awesome.min.css'
 
 // 引入自己的组件
 import Tabs from '@/components/tabs/tabs'
-import DiceGame from '@/components/Dice/DiceGame'
-import CurrencyGroup from '@/components/Currency/CurrencyGroup'
-import Notice from '@/components/Notice/Notice'
 // 注册全局组件
 Vue.component(Tabs.name,Tabs)
-Vue.component(DiceGame.name,DiceGame)
-Vue.component(CurrencyGroup.name,CurrencyGroup)
-Vue.component(Notice.name,Notice)
 
 // 配置axios
 import Axios from 'axios'

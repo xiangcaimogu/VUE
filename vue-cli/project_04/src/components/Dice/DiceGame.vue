@@ -28,7 +28,7 @@
             <el-row>
             <el-col :span="4">
               <el-form-item>
-                <div class="grid-content">选择货币</div>
+                <div class="grid-content chip-img">Chip</div>
                 <el-select v-model="value" placeholder="请选择">
                   <el-option
                     v-for="item in options"
@@ -89,7 +89,7 @@
                 inactive-text="关闭">
               </el-switch>
               <el-tooltip class="item" effect="dark" content="Top Left 提示文字" placement="top-start">
-                <el-button size="small"><i class="el-icon-question"></i></el-button>
+                <el-button size="small" class="el-icon-question"></el-button>
               </el-tooltip>
             </el-form-item>
           </div>
@@ -112,7 +112,12 @@
                   </ul>
                 </el-col>
                 <el-col class="custom-question" :span="6">
-                  <notice v-bind="todo"></notice>
+                  <el-button
+                    size="small"
+                    plain
+                    @click="open2"
+                    class="el-icon-question">
+                  </el-button>
                 </el-col>
               </el-row>
             </el-card>
@@ -202,6 +207,19 @@
           <el-tab-pane label="我的投注" name="second">我的投注</el-tab-pane>
         </el-tabs>
       </div>
+    </div>
+    <div class="cpu-box">
+      <ul class="cpu-message">
+        <li>
+          <p>CPU</p>
+          <el-progress type="circle" :percentage="60" :width="50" :stroke-width="3" color="#b377fe"></el-progress>
+        </li>
+        <li><p style="border-top: 1px solid #3C4771; width: 55px;margin-left: 15px;"></p></li>
+        <li>
+          <p>NET</p>
+          <el-progress type="circle" :percentage="80" :width="50" :stroke-width="3" color="#96fea7"></el-progress>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -343,7 +361,18 @@ export default {
         }
       }
   },
+  mounted (){
+    this.$nextTick(function () {
+      console.log(this.$el.svg)
+    })
+  },
   methods: {
+    open2() {
+      this.$notify({
+        title: 'asd',
+        message: 'message',
+        duration: 0});
+    },
     handleClick(tab, event) {
       console.log(tab, event);
     },
@@ -396,6 +425,9 @@ export default {
 }
 .money-img {
   background-image: url("../../assets/img/money.png");
+}
+.chip-img {
+  background-image: url("../../assets/img/chip.png");
 }
 .el-table .warning-row {
   background: oldlace;
@@ -496,5 +528,20 @@ export default {
   background-color: transparent;
   color: #fff;
 }
-
+.cpu-box {
+  position: fixed;
+  right: 100px;
+  top: 100px;
+}
+.cpu-message {
+  color: #ffffff;
+  text-align: center;
+  border: 1px solid #2d4471;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  width: 85px;
+  height: 260px;
+  background-color: #283045;
+}
 </style>

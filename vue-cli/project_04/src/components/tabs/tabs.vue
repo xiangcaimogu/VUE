@@ -44,8 +44,8 @@ export default {
   .tabs-fix {
     width: 110px;
     position: fixed;
-    right: 0;
-    top: 78px;
+    left: 0;
+    top: 100px;
     z-index: 9;
   }
   li {
@@ -69,5 +69,7 @@ export default {
   .is-active {
     background-color: #ED9326!important;
   }
-
+  .el-menu {
+    border-right:none;
+  }
 </style>
