@@ -363,7 +363,8 @@ export default {
   },
   mounted (){
     this.$nextTick(function () {
-      console.log(this.$el.svg)
+      document.getElementsByTagName('svg')[0].children[0].attributes.stroke.nodeValue='#3b435c';
+      document.getElementsByTagName('svg')[1].children[0].attributes.stroke.nodeValue='#3b435c';
     })
   },
   methods: {
