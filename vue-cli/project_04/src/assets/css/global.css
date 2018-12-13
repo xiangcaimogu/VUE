@@ -122,7 +122,7 @@ body {
   background-color: #3b435c;
   color: #ffffff;
 }
-.nav-items li .el-input__inner {
+.nav-items li .el-select .el-input__inner {
   background-color: #3b435c;
   color: #ffffff;
   border: none;
@@ -173,4 +173,28 @@ body {
   background-repeat: no-repeat;
   background-size: 25px auto;
   background-position:center ;
+}
+/************************
+----------nav-dialog----------
+************************/
+.custom-dividend .el-dialog__body {
+  padding: 0px 25px 20px;
+}
+.custom-play .el-dialog__header span ,.custom-play .el-dialog__header i{
+  color: #ffffff;
+}
+.custom-invite .el-dialog__header span ,.custom-invite .el-dialog__header i{
+  color: #ffffff;
+}
+.custom-dividend .el-dialog__header span ,.custom-dividend .el-dialog__header i{
+  color: #ffffff;
+}
+.nav-items .el-dialog {
+  background: linear-gradient(to top right, #533A9C , #35AA95);
+  opacity: 0.95;
+}
+.nav-items .custom-dividend .el-tabs__item {
+  color: #ffffff;
+}
+.custom-record-cell {
 }
