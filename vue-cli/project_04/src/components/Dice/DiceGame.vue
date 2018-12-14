@@ -98,28 +98,18 @@
               登录
             </el-button>
           </div>
-          <div class="custom-card-prompt">
+          <div class="custom-card-reward">
             <el-card shadow='never'>
-              <el-row>
-                <el-col :span="16">
-                  <ul>
-                    <li>
-                      <span>下注可获得<span>3.125</span>DICE</span>
-                    </li>
-                    <li class="custom-prompt-fontcolor">
-                      <span>现在投注可获得投注货币<span>3.125</span>DICE</span>
-                    </li>
-                  </ul>
-                </el-col>
-                <el-col class="custom-question" :span="6">
-                  <el-button
-                    size="small"
-                    plain
-                    @click="open2"
-                    class="el-icon-question">
-                  </el-button>
-                </el-col>
-              </el-row>
+              <span>下注可获得<span>3.125</span>DICE</span>
+              <div class="custom-reward-textcolor">
+                <span>现在投注可获得投注货币<span>3.125</span>DICE</span>
+              </div>
+              <el-button
+                size="small"
+                plain
+                @click="open2"
+                class="el-icon-question">
+              </el-button>
             </el-card>
           </div>
         </el-form>
@@ -139,8 +129,9 @@
               height="516"
               style="width: 100%;background-color:#1c233f "
               :row-class-name="handleMyClass"
-              :header-cell-class-name="handleMyheaderClass"
               :cell-class-name="handleCellClass"
+              :header-row-class-name="handleHeaderRowClassName"
+              :header-cell-class-name="handleMyheaderClass"
               >
               <el-table-column
                 prop="rank"
@@ -172,9 +163,10 @@
               :data="tableData2"
               style="width: 100% ;background-color:#1c233f "
               height="500"
-              :row-class-name="tableRowClassName"
-              :header-cell-class-name="handleMyheaderClass"
+              :row-class-name="handleMyClass"
               :cell-class-name="handleCellClass"
+              :header-row-class-name="handleHeaderRowClassName"
+              :header-cell-class-name="handleMyheaderClass"
             >
               <el-table-column
                 prop="date"
@@ -377,24 +369,19 @@ export default {
     handleClick(tab, event) {
       console.log(tab, event);
     },
-    tableRowClassName({row, rowIndex}) {
-      if (rowIndex === 1) {
-        return 'warning-row';
-      } else if (rowIndex === 3) {
-        return 'success-row';
-      }
-      return 'custom-row';
-    },
     handleMyClass(row, rowIndex){
       console.log(row,rowIndex)
-      return 'custom-row'
+      return 'custom-rank-row'
     },
     handleCellClass(row, rowIndex){
-      return 'custom-cell'
+      return 'custom-rank-cell'
     },
 
     handleMyheaderClass (row, rowIndex){
-      return 'custom-header-row'
+      return 'custom-rank-header-row'
+    },
+    handleHeaderRowClassName (){
+      return 'custom-rank-header-cell'
     },
     onSubmit() {
       console.log('submit!');
@@ -486,25 +473,36 @@ export default {
   color: #fff;
   line-height: 20px;
 }
+.custom-card-reward .el-button {
+  position: absolute;
+  left: 78%;
+  top: 30%;
+  font-size: 22px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  line-height: 20px;
+}
 .custom-signon {
   text-align: center;
 }
-.custom-card-prompt {
+.custom-card-reward {
   margin-top: 20px;
+  background-color: #1c233f;
 }
-.custom-card-prompt span {
+.custom-card-reward span {
   line-height: 26px;
 }
-.custom-card-prompt .el-card {
-  padding: 0px;
+.custom-card-reward .el-card {
+  position: relative;
+  width: 60%;
+  margin: 0 auto;
+  padding-left: 80px;
   color: #ffffff;
-  background-color: #1c233f;
   border: none;
+  background-color: transparent;
 }
-.custom-question {
-  margin-top: 10px
-}
-.custom-prompt-fontcolor {
+.custom-reward-textcolor {
   color: #ff8831;
 }
 .custom-ranking-top {

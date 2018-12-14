@@ -49,37 +49,25 @@ body {
    -webkit-box-shadow: 0 0 12px #fff inset;
    box-shadow: 0 0 12px #fff inset;
 }
-.custom-card-prompt .el-card__body {
-  padding: 8px 0 8px 120px;
-}
-.custom-row {
+.custom-rank-row {
   background-color: #171c32!important;
   color: #ffffff!important;
   text-align: center!important;
 }
-.custom-header-row {
+.custom-rank-header-row {
   background-color: #1c233f!important;
   color: #ffffff!important;
   text-align: center!important;
+  border-bottom: none!important;
 }
-.custom-cell {
+.custom-rank-header-cell {
+}
+.custom-rank-cell {
   text-align: center!important;
-}
-.custom-ranking-box .el-table__body td {
   border-bottom: 4px solid #1c233f!important;
 }
-.custom-ranking-box .el-table--enable-row-hover .el-table__body tr:hover>td , .custom-all-bets .el-table--enable-row-hover .el-table__body tr:hover>td{
+.custom-rank-row:hover>td {
   background-color: #171c32 !important;
-}
-.el-table .warning-row {
-  background: #4C2D2E;
-  color: #fff;
-}
-.el-table .success-row {
-  background: #334E47;
-}
-.custom-all-bets .el-table__body td {
-  border-bottom: 0px solid #1c233f!important;
 }
 .custom-all-bets .el-tabs__item {
   font-size: 18px;
@@ -88,10 +76,7 @@ body {
 .custom-all-bets .el-tabs__nav-wrap::after {
   background-color: #1c233f;
 }
-.custom-ranking-box .el-table td, .el-table th.is-leaf , .custom-all-bets .el-table td, .el-table th.is-leaf {
-  border-bottom: 1px solid #1c233f
-}
-.el-table::before {
+.custom-ranking-box .el-table::before {
   background-color: #1c233f;
 }
 .ctrl-board .el-input__inner {
@@ -130,16 +115,16 @@ body {
 /*.el-table--scrollable-y .el-table__body-wrapper {*/
 
 /*}*/
-.el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar {/*滚动条整体样式*/
+.custom-ranking-box .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar {/*滚动条整体样式*/
   width: 6px;     /*高宽分别对应横竖滚动条的尺寸*/
   height: 1px;
 }
-.el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+.custom-ranking-box .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
   background: #3C4771;
 }
-.el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-track {/*滚动条里面轨道*/
+.custom-ranking-box .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-track {/*滚动条里面轨道*/
   -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
   border-radius: 10px;
   background: #1C233F;
@@ -189,7 +174,10 @@ body {
 .custom-dividend .el-dialog__header span ,.custom-dividend .el-dialog__header i{
   color: #ffffff;
 }
-.nav-items .el-dialog {
+.login-form .el-dialog__header span ,.login-form .el-dialog__header i{
+  color: #ffffff;
+}
+.login-button .el-dialog ,.nav-items .el-dialog {
   background: linear-gradient(to top right, #533A9C , #35AA95);
   opacity: 0.95;
 }
@@ -197,4 +185,65 @@ body {
   color: #ffffff;
 }
 .custom-record-cell {
+  border-bottom: 1px solid rgba(255,255,255,0.1)!important;
+}
+.custom-record-row {
+  background-color: transparent!important;
+}
+.custom-record-row:hover>td {
+  background-color: transparent !important;
+}
+.custom-record-header-cell, .custom-record-header-row {
+  background-color: transparent!important;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255,255,255,0.1)!important;
+}
+.record .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar {/*滚动条整体样式*/
+  width: 6px;     /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+.record .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  background-color:rgba(255,255,255,0.6);
+}
+.record .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-track {/*滚动条里面轨道*/
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background-color:rgba(255,255,255,0.1);
+}
+.record .el-table::before {
+  background-color: transparent;
+}
+.custom-invite {
+  width: 480px;
+}
+.custom-play {
+  width: 650px;
+}
+.custom-dividend {
+  width: 560px;
+}
+.login-form {
+  width: 360px;
+}
+.login-form .el-form-item .el-form-item__label{
+  color: #ffffff;
+}
+.login-form .el-dialog__body {
+  padding-bottom: 0;
+}
+.login-form .el-input .el-input__inner{
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  border: none;
+  color: #ffffff;
+  background-color: rgba(255,255,255,0.1)!important;
+}
+.el-button--custom {
+  color: #fff;
+  background-color: rgba(255,255,255,0.1);
+  border:none;
+  width: 250px;
 }

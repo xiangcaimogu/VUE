@@ -3,10 +3,39 @@
     <div class="nav-top">
       <div class="nav-box">
         <img class="logo" src="" alt="">
+        <div class="nav-menu-button">
+          <el-button type="info" size="mini">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </el-button>
+        </div>
+        <div class="login-button">
+          <el-button type="primary" size="mini" @click="dialogLoginVisiable=true">登录</el-button>
+          <el-dialog
+            center
+            title="登录"
+            custom-class="login-form"
+            :visible.sync="dialogLoginVisiable">
+            <el-form :model="loginform">
+              <el-form-item>
+                <el-input clearable placeholder="用户名" v-model="loginform.name" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-input clearable placeholder="密码" v-model="loginform.password" autocomplete="off"></el-input>
+              </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+              <el-button type="custom" @click="dialogFormVisible = false">确 定</el-button>
+            </div>
+          </el-dialog>
+        </div>
         <ul class="nav-items">
           <li>
             <el-button type="text" @click="dialogPlayVisible = true">玩法介绍</el-button>
-            <el-dialog class="custom-play" title="玩法介绍" center :visible.sync="dialogPlayVisible">
+            <el-dialog
+              title="玩法介绍"
+              center
+              custom-class="custom-play"
+              :visible.sync="dialogPlayVisible">
               <p>1. 准备好你的EOS 帐号，如果还未有EOS帐号，可根据 <a href=""> <strong>教程</strong></a>创建</p>
               <p>2. 您需要透过Scatter 在网页上操作帐号，如果还未有安装Scatter，请 <a href=""> <strong>安装Scatter</strong></a></p>
               <p>3, 按下登入按钮，透过Scatter 进行登入</p>
@@ -20,7 +49,11 @@
           </li>
           <li>
             <el-button type="text" @click="dialogInviteVisible = true">邀请好友</el-button>
-            <el-dialog class="custom-invite" title="邀请好友领取奖励" width="30%" center :visible.sync="dialogInviteVisible">
+            <el-dialog
+              custom-class="custom-invite"
+              title="邀请好友领取奖励"
+              center
+              :visible.sync="dialogInviteVisible">
               <el-row>
                 <el-col :span="16"><el-input v-model="http" placeholder="请输入内容"></el-input>
                 </el-col>
@@ -33,7 +66,10 @@
           </li>
           <li>
             <el-button type="text" @click="dialogDividendVisible = true">分红</el-button>
-            <el-dialog class="custom-dividend" title="" width="30%" :visible.sync="dialogDividendVisible">
+            <el-dialog
+              custom-class="custom-dividend"
+              title=""
+              :visible.sync="dialogDividendVisible">
               <el-tabs v-model="activeName" @tab-click="handleClick">
                 <el-tab-pane label="分红池" name="first">
                   <div class="divide-pool">
@@ -97,25 +133,27 @@
                     </div>
                     <el-table
                       :data="tableData3"
-                      style="width: 100% ;background-color:#1c233f "
-                      height="250"
+                      style="width: 100% ; color: #ffffff;background-color:rgba(255,255,255,0.1) "
+                      height="300"
                       :cell-class-name="recordCellClass"
                       :row-class-name="recordRowClassName"
+                      :header-row-class-name="recordHeaderRowClassName"
+                      :header-cell-class-name="recordHeaderCellClassName"
                       >
                       <el-table-column
                         prop="date"
                         label="日期"
-                        width="150">
+                        min-width="100">
                       </el-table-column>
                       <el-table-column
                         prop="eos"
                         label="EOS"
-                        width="150">
+                        min-width="100">
                       </el-table-column>
                       <el-table-column
                         prop="dic"
                         label="DIC"
-                        width="150">
+                        min-width="100">
                       </el-table-column>
                     </el-table>
                   </div>
@@ -154,8 +192,29 @@ export default {
       dialogPlayVisible: false,
       dialogInviteVisible: false,
       dialogDividendVisible: false,
+      dialogLoginVisiable:false,
       activeName: 'first',
       http:'http://',
+      form: {
+        name: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      },
+      loginform: {
+        name: '',
+        password: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      },
       options: [{
         value: '1',
         label: '简体中文'
@@ -203,6 +262,12 @@ export default {
     },
     recordRowClassName(){
       return 'custom-record-row'
+    },
+    recordHeaderRowClassName (){
+      return 'custom-record-header-row'
+    },
+    recordHeaderCellClassName (){
+      return 'custom-record-header-cell'
     }
   }
 }
@@ -212,7 +277,8 @@ export default {
 #app {
 }
 .nav-box {
-  width: 1180px;
+  max-width: 1180px;
+  width: 90%;
   height: 60px;
   margin: 0 auto;
 }
@@ -220,26 +286,19 @@ export default {
   width: 100%;
   background-color: #1C233F;
 }
-.nav-items {
-  float: right;
-  width: 600px;
-}
-.nav-items>li {
-  float: left;
-  padding: 0 25px;
-}
+
 .nav-items li>.el-select{
   width: 130px;
   line-height: 60px;
   font-size: 14px;
 }
-.nav-items li>.el-button {
-  color: #ffffff;
-  line-height: 36px;
-  font-size: 14px;
-}
+
 .nav-items li .el-button:hover {
   text-shadow: 0px 0px 8px #ffffff;
+}
+.login-button {
+  float: right;
+  line-height: 60px;
 }
 .content-box {
   background-color: #161933;
@@ -349,11 +408,48 @@ export default {
 .custom-button-record {
   position: absolute;
   left: 65%;
-  top: 25px;
+  top: 20px;
+}
+.custom-button-record span{
+  font-size: 12px;
 }
 .custom-button-record .el-button {
   background-color: transparent;
   color: #fff;
+  border: none;
+}
+@media (min-width: 768px) {
+  .nav-menu-button {
+    display: none;
+  }
+  .nav-items {
+    float: right;
+    width: 500px;
+  }
+  .nav-items>li {
+    float: left;
+    padding: 0 25px;
+  }
+  .nav-items li>.el-button {
+    color: #ffffff;
+    line-height: 36px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 767px) {
+  .nav-top {
+    height: 500px;
+  }
+  .nav-menu-button {
+    margin-left: 20px;
+    float: right;
+    line-height: 60px;
+  }
+  .nav-items li>.el-button {
+    color: #ffffff;
+    line-height: 20px;
+    font-size: 14px;
+  }
 }
 
 </style>
