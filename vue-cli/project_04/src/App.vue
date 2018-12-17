@@ -276,11 +276,10 @@ export default {
 <style scoped>
 #app {
 }
-.nav-box {
-  max-width: 1180px;
-  width: 90%;
+
+.nav-box img {
+  display: inline-block;
   height: 60px;
-  margin: 0 auto;
 }
 .nav-top {
   width: 100%;
@@ -419,6 +418,12 @@ export default {
   border: none;
 }
 @media (min-width: 768px) {
+  .nav-box {
+    max-width: 1180px;
+    width: 90%;
+    height: 60px;
+    margin: 0 auto;
+  }
   .nav-menu-button {
     display: none;
   }
@@ -437,8 +442,17 @@ export default {
   }
 }
 @media (max-width: 767px) {
+  .nav-box {
+    max-width: 1180px;
+    width: 100%;
+    height: 60px;
+  }
   .nav-top {
     height: 500px;
+  }
+  .nav-items {
+    border-top: 1px solid #ffffff;
+    padding-left: 16px;
   }
   .nav-menu-button {
     margin-left: 20px;

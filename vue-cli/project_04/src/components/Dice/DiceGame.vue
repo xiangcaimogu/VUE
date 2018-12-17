@@ -543,4 +543,10 @@ export default {
   height: 260px;
   background-color: #283045;
 }
+
+@media (max-width: 767px) {
+  .cpu-box {
+    display: none;
+  }
+}
 </style>
