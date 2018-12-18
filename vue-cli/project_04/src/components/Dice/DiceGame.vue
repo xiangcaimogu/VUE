@@ -3,118 +3,118 @@
     <!--<currency-group></currency-group>-->
     <div class="center-view">
       <el-row :gutter="10">
-        <el-col class="ctrl-board" :xs="24" :sm="13">
+        <el-col class="ctrl-board" :xs="{span:22,offset:1}" :sm="{span:22,offset:1}" :md="{span:13,offset:0}">
           <el-form ref="form" :model="form">
             <el-row>
               <el-col :span="8">
                 <el-card class="card-message" shadow='never'>
                   <span>小于改数获胜</span>
-                  <h1>48</h1>
+                  <span class="board-data">48</span>
                 </el-card>
               </el-col>
               <el-col :span="8">
                 <el-card class="card-message" shadow='never'>
                   <span>赔率</span>
-                  <h1>2.005X</h1>
+                  <span class="board-data">2.005X</span>
                 </el-card>
               </el-col>
               <el-col :span="8">
                 <el-card class="card-message" shadow='never'>
                   <span>中奖概率</span>
-                  <h1>48%</h1>
+                  <span class="board-data">48%</span>
                 </el-card>
               </el-col>
             </el-row>
             <el-row>
-            <el-col :span="4">
-              <el-form-item>
-                <div class="grid-content chip-img">Chip</div>
-                <el-select v-model="value" placeholder="请选择">
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
-              </el-form-item>
-            </el-col>
-            <el-col :offset="1" :span="12">
-              <el-form-item>
-                <div class="grid-content rank-img">投注金额</div>
-                <el-row class="touzhu">
-                  <el-col class="jine" :span="13">
-                      <el-input size="small" v-model="input" placeholder="请输入内容">
-                        <template slot="append">DICE</template>
-                      </el-input>
-                  </el-col>
-                  <el-col :span="11">
-                    <el-button-group>
-                      <el-button size="small" >1/2</el-button>
-                      <el-button size="small" >2X</el-button>
-                      <el-button size="small" >MAX</el-button>
-                    </el-button-group>
-                  </el-col>
-                </el-row>
-              </el-form-item>
-            </el-col>
-            <el-col :offset="1" :span="6">
-              <div class="grid-content text-line money-img ">赢取奖金</div>
-              <div class="touzhu">
-                <el-input size="small" v-model="input" disabled>
-                  <template slot="append">DICE</template>
-                </el-input>
-              </div>
-            </el-col>
-          </el-row>
-          <el-form-item>
-          <div class="block custom-slider">
-            <el-slider v-model="value2"></el-slider>
-            <el-row class="custom-subscript">
-              <el-col :span="6">1</el-col>
-              <el-col :span="6">25</el-col>
-              <el-col :span="6">50</el-col>
-              <el-col :span="5">75</el-col>
-              <el-col :span="1">100</el-col>
+              <el-col :xs="{span:24}" :sm="{span:4,offset:0}">
+                <el-form-item>
+                  <div class="grid-content chip-img">Chip</div>
+                  <el-select v-model="value" placeholder="请选择">
+                    <el-option
+                      v-for="item in options"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :xs="{span:24}" :sm="{span:12,offset:1}">
+                <el-form-item>
+                  <div class="grid-content rank-img">投注金额</div>
+                  <el-row class="touzhu">
+                    <el-col class="jine" :span="13">
+                        <el-input size="small" v-model="input" placeholder="请输入内容">
+                          <template slot="append">DICE</template>
+                        </el-input>
+                    </el-col>
+                    <el-col :span="11">
+                      <el-button-group>
+                        <el-button size="small" >1/2</el-button>
+                        <el-button size="small" >2X</el-button>
+                        <el-button size="small" >MAX</el-button>
+                      </el-button-group>
+                    </el-col>
+                  </el-row>
+                </el-form-item>
+              </el-col>
+              <el-col :xs="{span:24}" :sm="{span:6,offset:1}">
+                <div class="grid-content text-line money-img ">赢取奖金</div>
+                <div class="touzhu">
+                  <el-input size="small" v-model="input" disabled>
+                    <template slot="append">DICE</template>
+                  </el-input>
+                </div>
+              </el-col>
             </el-row>
-          </div>
-          </el-form-item>
-          <div class="custom-switch">
             <el-form-item>
-              <el-switch
-                style="zoom:1.2"
-                v-model="value3"
-                active-color="#4CE8DE"
-                active-text="自动投注"
-                inactive-text="关闭">
-              </el-switch>
-              <el-tooltip class="item" effect="dark" content="Top Left 提示文字" placement="top-start">
-                <el-button size="small" class="el-icon-question"></el-button>
-              </el-tooltip>
-            </el-form-item>
-          </div>
-          <div class="custom-signon">
-            <el-button type="primary" style="width: 160px;">
-              登录
-            </el-button>
-          </div>
-          <div class="custom-card-reward">
-            <el-card shadow='never'>
-              <span>下注可获得<span>3.125</span>DICE</span>
-              <div class="custom-reward-textcolor">
-                <span>现在投注可获得投注货币<span>3.125</span>DICE</span>
+              <div class="block custom-slider">
+                <el-slider v-model="value2"></el-slider>
+                <el-row class="custom-subscript">
+                  <el-col :span="6">1</el-col>
+                  <el-col :span="6">25</el-col>
+                  <el-col :span="6">50</el-col>
+                  <el-col :span="5">75</el-col>
+                  <el-col :span="1">100</el-col>
+                </el-row>
               </div>
-              <el-button
-                size="small"
-                plain
-                @click="open2"
-                class="el-icon-question">
+            </el-form-item>
+            <div class="custom-switch">
+              <el-form-item>
+                <el-switch
+                  style="zoom:1.2"
+                  v-model="value3"
+                  active-color="#4CE8DE"
+                  active-text="自动投注"
+                  inactive-text="关闭">
+                </el-switch>
+                <el-tooltip class="item" effect="dark" content="Top Left 提示文字" placement="top-start">
+                  <el-button size="small" class="el-icon-question"></el-button>
+                </el-tooltip>
+              </el-form-item>
+            </div>
+            <div class="custom-signon">
+              <el-button type="primary" style="width: 160px;">
+                登录
               </el-button>
-            </el-card>
-          </div>
-        </el-form>
+            </div>
+            <div class="custom-card-reward">
+              <el-card shadow='never'>
+                <span>下注可获得<span>3.125</span>DICE</span>
+                <div class="custom-reward-textcolor">
+                  <span>现在投注可获得投注货币<span>3.125</span>DICE</span>
+                </div>
+                <el-button
+                  size="small"
+                  plain
+                  @click="open2"
+                  class="el-icon-question">
+                </el-button>
+              </el-card>
+            </div>
+          </el-form>
         </el-col>
-        <el-col :xs="24" :sm="11">
+        <el-col :xs="{span:22,offset:1}" :sm="{span:22,offset:1}" :md="{span:11,offset:0}">
           <div class="custom-ranking-box">
             <div class="custom-ranking-top">
               <i class="fa fa-bar-chart" aria-hidden="true"></i>
@@ -136,21 +136,25 @@
               <el-table-column
                 prop="rank"
                 label="排名"
-                width="90">
+                min-width="50">
               </el-table-column>
               <el-table-column
                 prop="name"
                 label="投注者"
-                width="120">
+                min-width="90"
+                show-overflow-tooltip>
               </el-table-column>
               <el-table-column
                 prop="date"
                 label="总投注额"
-                width="120">
+                min-width="90"
+                show-overflow-tooltip>
               </el-table-column>
               <el-table-column
                 prop="address"
-                label="奖励">
+                label="奖励"
+                min-width="60"
+                show-overflow-tooltip>
               </el-table-column>
             </el-table>
           </div>
@@ -232,8 +236,8 @@ export default {
         tableData3: [{
           rank: '',
           name: '王小虎',
-          date: '1250EOS',
-          address: '2EOS'
+          date: '1250EssssssssssssOS',
+          address: '2EO'
         }, {
           rank: '',
           name: '王小虎',
@@ -396,12 +400,10 @@ export default {
   margin: 0 auto;
   position: relative;
 }
-.ctrl-board {
-  padding: 50px 0;
-  color: #ffffff;
-}
+
 .grid-content {
   font-size: 13px;
+  font-family: "PingFang SC";
   color: #898a8c;
   padding: 7px 0px 4px 30px;
   background-repeat: no-repeat;
@@ -452,6 +454,8 @@ export default {
   background-color: #1c233f;
   color: #fff;
   border:none;
+  font-family: "PingFang SC";
+  font-weight: 300;
 }
 .el-slider__runway {
   background-color: #F38F00;
@@ -473,16 +477,7 @@ export default {
   color: #fff;
   line-height: 20px;
 }
-.custom-card-reward .el-button {
-  position: absolute;
-  left: 78%;
-  top: 30%;
-  font-size: 22px;
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  line-height: 20px;
-}
+
 .custom-signon {
   text-align: center;
 }
@@ -493,19 +488,13 @@ export default {
 .custom-card-reward span {
   line-height: 26px;
 }
-.custom-card-reward .el-card {
-  position: relative;
-  width: 60%;
-  margin: 0 auto;
-  padding-left: 80px;
-  color: #ffffff;
-  border: none;
-  background-color: transparent;
-}
+
 .custom-reward-textcolor {
   color: #ff8831;
 }
 .custom-ranking-top {
+  font-family: "PingFang SC";
+  font-weight: normal;
   text-align: center;
   color: #fff;
   font-size: 19px;
@@ -513,24 +502,12 @@ export default {
   margin: 0;
   position: relative;
 }
-.custom-ranking-box {
-  margin-top: 50px;
-  padding-left: 16px;
-  background-color: #1c233f
-}
-.custom-button-ranking {
-  position: absolute;
-  right: 60px;
-  top: 17px;
-}
-.custom-button-ranking .el-button {
-  background-color: transparent;
-  color: #fff;
-}
+
+
 .cpu-box {
   position: fixed;
-  right: 100px;
-  top: 100px;
+  right: 0;
+  top: 252px;
 }
 .cpu-message {
   color: #ffffff;
@@ -544,9 +521,105 @@ export default {
   background-color: #283045;
 }
 
+@media (min-width: 768px) {
+  .ctrl-board {
+    padding: 50px 0;
+    color: #ffffff;
+  }
+  .board-data {
+    display: block;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 60px;
+  }
+  .custom-card-reward .el-card {
+    font-family: "PingFang SC";
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    padding-left: 80px;
+    color: #ffffff;
+    border: none;
+    background-color: transparent;
+  }
+  .custom-card-reward .el-button {
+    position: absolute;
+    left: 78%;
+    top: 30%;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    line-height: 20px;
+  }
+  .custom-ranking-box {
+    margin-top: 50px;
+    padding-left: 16px;
+    background-color: #1c233f
+  }
+  .custom-button-ranking {
+    position: absolute;
+    right: 60px;
+    top: 17px;
+  }
+  .custom-button-ranking .el-button {
+    background-color: transparent;
+    color: #fff;
+  }
+}
 @media (max-width: 767px) {
+  .ctrl-board {
+    padding: 20px 0;
+    color: #ffffff;
+  }
   .cpu-box {
     display: none;
+  }
+  .board-data {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .el-form-item {
+    margin-bottom: 0px
+  }
+  .custom-card-reward .el-card {
+    font-family: "PingFang SC";
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 45px;
+    color: #ffffff;
+    border: none;
+    background-color: transparent;
+  }
+  .custom-card-reward .el-button {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    line-height: 20px;
+  }
+  .custom-ranking-box {
+    margin-top: 10px;
+    padding-left: 5px;
+    background-color: #1c233f
+  }
+  .custom-button-ranking {
+    position: absolute;
+    right: 8px;
+    top: 17px;
+  }
+  .custom-button-ranking .el-button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+  }
+  .custom-all-bets {
+    margin-top: 10px;
+    padding: 0 14px;
   }
 }
 </style>

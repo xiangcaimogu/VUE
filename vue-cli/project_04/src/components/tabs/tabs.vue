@@ -52,9 +52,7 @@ export default {
     text-align: center;
     line-height: 18px!important;
   }
-  img {
-    width: 60px;
-  }
+
   .is-active {
     background-color: #ED9326!important;
   }
@@ -62,7 +60,10 @@ export default {
     border-right:none;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1339px) {
+    img {
+      width: 60px;
+    }
     .tabs-fix {
       width: 110px;
       position: fixed;
@@ -73,27 +74,46 @@ export default {
     li {
       height: 85px;
       margin-bottom: 10px;
-      /*padding-top: 10px;*/
       background-color: rgba(255, 255, 255, .2);
       opacity: 0.9
     }
   }
-  @media (max-width: 767px) {
+  @media (max-width: 1340px) {
+    img {
+      width: 60px;
+    }
     .menu-big-box {
-      position: relative;
-      height: 105px;
+      height: 110px;
+      text-align: center;/**居中定位**/
     }
     .tabs-fix {
-      top: 20px;
-      position: absolute;
-      left: 50%;
-      margin-left: -200px;
+      display: inline-block;
+      margin-top: 20px;
     }
     li {
       float: left;
       height: 85px;
       margin-bottom: 10px;
-      /*padding-top: 10px;*/
+      background-color: rgba(255, 255, 255, .2);
+      opacity: 0.9
+    }
+  }
+  @media (max-width: 768px) {
+    img {
+      width: 40px;
+    }
+    .menu-big-box {
+      height: 105px;
+      text-align: center;/**居中定位**/
+    }
+    .tabs-fix {
+      display: inline-block;
+      margin-top: 20px;
+    }
+    li {
+      float: left;
+      height: 85px;
+      margin-bottom: 10px;
       background-color: rgba(255, 255, 255, .2);
       opacity: 0.9
     }

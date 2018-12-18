@@ -51,16 +51,19 @@ body {
 }
 .custom-rank-row {
   background-color: #171c32!important;
-  color: #ffffff!important;
-  text-align: center!important;
+  color: #ffffff;
+  text-align: center;
+  font-family: "PingFang SC";
 }
 .custom-rank-header-row {
   background-color: #1c233f!important;
-  color: #ffffff!important;
-  text-align: center!important;
-  border-bottom: none!important;
+  color: #ffffff;
+  text-align: center !important;
+  border: 1px solid #1C233F !important;
+  font-weight: 400;
 }
 .custom-rank-header-cell {
+  font-family: "PingFang SC";
 }
 .custom-rank-cell {
   text-align: center!important;
@@ -69,10 +72,7 @@ body {
 .custom-rank-row:hover>td {
   background-color: #171c32 !important;
 }
-.custom-all-bets .el-tabs__item {
-  font-size: 18px;
-  font-weight: bold;
-}
+
 .custom-all-bets .el-tabs__nav-wrap::after {
   background-color: #1c233f;
 }
@@ -130,7 +130,7 @@ body {
   background: #1C233F;
 }
 .custom-ranking-box .el-table th {
-  background-color: #1C233F;
+  background-color: #1C233F !important;
 }
 .custom-all-bets .el-tabs__item:hover {
   color: #fff;
@@ -159,12 +159,11 @@ body {
   background-size: 25px auto;
   background-position:center ;
 }
+
 /************************
 ----------nav-dialog----------
 ************************/
-.custom-dividend .el-dialog__body {
-  padding: 0px 25px 20px;
-}
+
 .custom-play .el-dialog__header span ,.custom-play .el-dialog__header i{
   color: #ffffff;
 }
@@ -215,15 +214,6 @@ body {
 .record .el-table::before {
   background-color: transparent;
 }
-.custom-invite {
-  width: 480px;
-}
-.custom-play {
-  width: 650px;
-}
-.custom-dividend {
-  width: 560px;
-}
 .login-form {
   width: 360px;
 }
@@ -246,4 +236,43 @@ body {
   background-color: rgba(255,255,255,0.1);
   border:none;
   width: 250px;
+}
+@media (min-width: 768px) {
+  .custom-all-bets .el-tabs__item {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .custom-invite {
+    width: 480px;
+  }
+  .custom-play {
+    width: 650px;
+  }
+  .custom-dividend {
+    width: 560px;
+  }
+  .custom-dividend .el-dialog__body {
+    padding: 0px 25px 20px;
+  }
+}
+@media (max-width: 767px) {
+  .custom-all-bets .el-tabs__item {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .custom-invite {
+    width: 340px;
+  }
+  .custom-play {
+    width: 350px;
+  }
+  .custom-dividend {
+    width: 350px;
+  }
+  .custom-dividend .el-dialog__body {
+    padding: 0px 10px 10px;
+  }
+  .el-message-box {
+    width: 350px;
+  }
 }
