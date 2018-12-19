@@ -212,6 +212,44 @@
               :data="tableData2"
               style="width: 100% ;background-color:#313A41 "
               height="500"
+              :row-class-name="handleBetRowMyClass"
+              :cell-class-name="handleBetCellClass"
+              :header-row-class-name="handleHeaderRowClassName"
+              :header-cell-class-name="handleMyheaderClass"
+            >
+              <el-table-column
+                prop="date"
+                label="时间"
+                width="180">
+              </el-table-column>
+              <el-table-column
+                prop="name"
+                label="投注者"
+                width="180">
+              </el-table-column>
+              <el-table-column
+                prop="minnum"
+                label="游戏">
+              </el-table-column>
+              <el-table-column
+                prop="address"
+                label="投注">
+              </el-table-column>
+              <el-table-column
+                prop="num"
+                label="开奖号码">
+              </el-table-column>
+              <el-table-column
+                prop="money"
+                label="奖金">
+              </el-table-column>
+            </el-table>
+          </el-tab-pane>
+          <el-tab-pane label="我的投注" name="second">
+            <el-table
+              :data="tableData4"
+              style="width: 100% ;background-color:#313A41 "
+              height="500"
               :row-class-name="handleMyClass"
               :cell-class-name="handleBetCellClass"
               :header-row-class-name="handleHeaderRowClassName"
@@ -229,7 +267,7 @@
               </el-table-column>
               <el-table-column
                 prop="minnum"
-                label="小于改号码获胜">
+                label="游戏">
               </el-table-column>
               <el-table-column
                 prop="address"
@@ -245,7 +283,6 @@
               </el-table-column>
             </el-table>
           </el-tab-pane>
-          <el-tab-pane label="我的投注" name="second">我的投注</el-tab-pane>
         </el-tabs>
       </div>
     </div>
@@ -345,6 +382,28 @@ export default {
           minnum:'226',
           num:'26',
           address: '28.215EOS',
+          money: '',
+        },{
+          date: '2016-05-02',
+          name: '王小虎',
+          minnum:'226',
+          num:'26',
+          address: '28.215EOS',
+          money: '16.21TGC',
+        }],
+        tableData4: [{
+          date: '2016-05-02',
+          name: '王小虎',
+          minnum:'226',
+          num:'26',
+          address: '28.215EOS',
+          money: '16.21TGC',
+        },{
+          date: '2016-05-02',
+          name: '王小虎',
+          minnum:'226',
+          num:'26',
+          address: '28.215EOS',
           money: '16.21TGC',
         },{
           date: '2016-05-02',
@@ -408,18 +467,28 @@ export default {
       console.log(column)
       if (columnIndex == 3){
         return 'custom-ranking-cell'
+      }else if (columnIndex == 2){
+        return 'custom-ranks-cell'
       }else {
         return 'custom-rank-cell'
       }
-    },
-    handleBetCellClass ({row, column, rowIndex, columnIndex}){
-      return 'custom-rank-cell'
     },
     handleMyheaderClass ({row, rowIndex}){
       return 'custom-rank-header-row'
     },
     handleHeaderRowClassName (){
       return 'custom-rank-header-cell'
+    },
+    handleBetCellClass ({row, column, rowIndex, columnIndex}){
+      return 'custom-bets-cell'
+    },
+    handleBetRowMyClass ({row, rowIndex}){
+      // console.log(row)
+      // if(row.data.money==''){
+      //   return 'custom-betslost-row'
+      // }else {
+        return 'custom-betswin-row'
+      // }
     },
     onSubmit() {
       console.log('submit!');
@@ -658,6 +727,7 @@ export default {
   .custom-button-ranking .el-button {
     background-color: transparent;
     color: #fff;
+    border: none;
   }
   .center-view .el-form-item {
     margin-bottom: 0px

@@ -55,6 +55,18 @@ body {
   text-align: center;
   font-family: "PingFang SC";
 }
+.custom-betswin-row {
+  background-color: #1D3332!important;
+  color: #ffffff;
+  text-align: center;
+  font-family: "PingFang SC";
+}
+.custom-betslost-row {
+  background-color: #30232B!important;
+  color: #ffffff;
+  text-align: center;
+  font-family: "PingFang SC";
+}
 .custom-rank-header-row {
   background-color: #313A41!important;
   color: #ffffff;
@@ -67,6 +79,12 @@ body {
 }
 .custom-ranking-cell {
   color: #F84447 !important;
+  font-weight: 700;
+  text-align: center!important;
+  border-bottom: 4px solid #313A41!important;
+}
+.custom-ranks-cell {
+  color: #d8d8d8 !important;
   text-align: center!important;
   border-bottom: 4px solid #313A41!important;
 }
@@ -74,10 +92,19 @@ body {
   text-align: center!important;
   border-bottom: 4px solid #313A41!important;
 }
+.custom-bets-cell {
+  text-align: center!important;
+  border-bottom: 1px solid #313A41!important;
+}
 .custom-rank-row:hover>td {
   background-color: #3A434C !important;
 }
-
+.custom-betswin-row:hover>td {
+  background-color: #1D3332 !important;
+}
+.custom-betslost-row:hover>td {
+  background-color: #30232B !important;
+}
 .custom-all-bets .el-tabs__nav-wrap::after {
   background-color: #313A41;
 }
