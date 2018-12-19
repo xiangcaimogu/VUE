@@ -11,21 +11,21 @@
         router
       >
         <el-menu-item index="dice">
-          <img src="../../assets/img/game_dice_icon.png" alt="">
+          <img src="../../assets/img/game_dices.png" alt="">
             <span>Dice</span>
         </el-menu-item>
         <el-menu-item index="baccarat">
           <img src="../../assets/img/game_baccarat_icon.png" alt="">
           <span slot="title">Baccarat</span>
         </el-menu-item>
-        <el-menu-item index="sicbo">
-          <img src="../../assets/img/game_dice_icon.png" alt="">
-          <span slot="title">Sicbo</span>
-        </el-menu-item>
-        <el-menu-item index="lottery">
-          <img src="../../assets/img/game_dice_icon.png" alt="">
-          <span slot="title">Lottery</span>
-        </el-menu-item>
+        <!--<el-menu-item index="sicbo">-->
+          <!--<img src="../../assets/img/game_dice_icon.png" alt="">-->
+          <!--<span slot="title">Sicbo</span>-->
+        <!--</el-menu-item>-->
+        <!--<el-menu-item index="lottery">-->
+          <!--<img src="../../assets/img/game_dice_icon.png" alt="">-->
+          <!--<span slot="title">Lottery</span>-->
+        <!--</el-menu-item>-->
       </el-menu>
     </div>
   </div>
@@ -43,7 +43,6 @@ export default {
 </script>
 
 <style scoped>
-
    ul {
     background-color: transparent!important;
   }
@@ -54,7 +53,7 @@ export default {
   }
 
   .is-active {
-    background-color: #ED9326!important;
+    background-color: #F7A623!important;
   }
   .el-menu {
     border-right:none;
@@ -68,7 +67,7 @@ export default {
       width: 110px;
       position: fixed;
       left: 0;
-      top: 100px;
+      top: 230px;
       z-index: 9;
     }
     li {

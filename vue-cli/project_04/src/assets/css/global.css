@@ -15,16 +15,16 @@ body {
   border:none;
 }
 .custom-slider .el-slider__runway {
-  background-color: #cd0c26;
+  background-color: #3A434C;
   height: 14px;
   border-radius: 8px;
 }
 .custom-slider .el-slider__bar {
-  background-color: #4CE8DE;
+  background-color: #F84447;
   height: 14px;
   border-radius: 8px;
-  webkit-box-shadow: 0 0 7px #4CE8DE;
-  box-shadow: 0 0 7px #4CE8DE;
+  /*webkit-box-shadow: 0 0 7px #4CE8DE;*/
+  /*box-shadow: 0 0 7px #4CE8DE;*/
 }
 .custom-slider .el-slider__button-wrapper {
   top: -11px;
@@ -50,65 +50,70 @@ body {
    box-shadow: 0 0 12px #fff inset;
 }
 .custom-rank-row {
-  background-color: #171c32!important;
+  background-color: #3A434C!important;
   color: #ffffff;
   text-align: center;
   font-family: "PingFang SC";
 }
 .custom-rank-header-row {
-  background-color: #1c233f!important;
+  background-color: #313A41!important;
   color: #ffffff;
   text-align: center !important;
-  border: 1px solid #1C233F !important;
+  border: 1px solid #313A41 !important;
   font-weight: 400;
 }
 .custom-rank-header-cell {
   font-family: "PingFang SC";
 }
+.custom-ranking-cell {
+  color: #F84447 !important;
+  text-align: center!important;
+  border-bottom: 4px solid #313A41!important;
+}
 .custom-rank-cell {
   text-align: center!important;
-  border-bottom: 4px solid #1c233f!important;
+  border-bottom: 4px solid #313A41!important;
 }
 .custom-rank-row:hover>td {
-  background-color: #171c32 !important;
+  background-color: #3A434C !important;
 }
 
 .custom-all-bets .el-tabs__nav-wrap::after {
-  background-color: #1c233f;
+  background-color: #313A41;
 }
 .custom-ranking-box .el-table::before {
-  background-color: #1c233f;
+  background-color: #313A41;
 }
 .ctrl-board .el-input__inner {
-  background-color: #3b435c;
+  background-color: #3A434C;
   color: #ffffff;
   border: none;
 }
 .el-select-dropdown {
-  background-color: #3b435c;
+  background-color: #3A434C;
   border: none;
 }
 .el-select-dropdown .el-select-dropdown__list .selected{
-  background-color: #3b435c;
+  background-color: #3A434C;
   color: #ffffff;
 }
 .el-select-dropdown .el-select-dropdown__list .hover{
-  background-color: #3b435c;
+  background-color: #3A434C;
   color: #ffffff;
 }
 .el-popper .popper__arrow , .el-popper .popper__arrow::after {
   border-bottom-color: #3b435c!important;
 }
 .el-select-dropdown .el-select-dropdown__list .el-select-dropdown__item{
-  background-color: #3b435c;
+  background-color: #3A434C;
   color: #d3d3d3;
 }
 .el-select-dropdown .el-select-dropdown__list .el-select-dropdown__item:hover{
-  background-color: #3b435c;
+  background-color: #3A434C;
   color: #ffffff;
 }
 .nav-items li .el-select .el-input__inner {
-  background-color: #3b435c;
+  background-color: #48515A;
   color: #ffffff;
   border: none;
 }
@@ -121,16 +126,14 @@ body {
 }
 .custom-ranking-box .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-  background: #3C4771;
+  background: rgba(255,255,255,0.2);
 }
 .custom-ranking-box .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-track {/*滚动条里面轨道*/
-  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
   border-radius: 10px;
-  background: #1C233F;
+  background: rgba(255,255,255,0.1);
 }
 .custom-ranking-box .el-table th {
-  background-color: #1C233F !important;
+  background-color: #313A41 !important;
 }
 .custom-all-bets .el-tabs__item:hover {
   color: #fff;
@@ -144,19 +147,19 @@ body {
 .custom-ranking-box .el-table tr:first-child td:first-child {
   background-image: url("../../assets/img/one.png");
   background-repeat: no-repeat;
-  background-size: 26px auto;
+  background-size: 35px auto;
   background-position:center ;
 }
 .custom-ranking-box .el-table tr:nth-child(2) td:first-child {
   background-image: url("../../assets/img/two.png");
   background-repeat: no-repeat;
-  background-size: 25px auto;
+  background-size: 30px auto;
   background-position:center ;
 }
 .custom-ranking-box .el-table tr:nth-child(3) td:first-child {
   background-image: url("../../assets/img/three.png");
   background-repeat: no-repeat;
-  background-size: 25px auto;
+  background-size: 30px auto;
   background-position:center ;
 }
 
@@ -203,11 +206,9 @@ body {
 }
 .record .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
   background-color:rgba(255,255,255,0.6);
 }
 .record .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-track {/*滚动条里面轨道*/
-  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
   border-radius: 10px;
   background-color:rgba(255,255,255,0.1);
 }
@@ -231,16 +232,45 @@ body {
   color: #ffffff;
   background-color: rgba(255,255,255,0.1)!important;
 }
+.el-button--yellow {
+  color: #fff;
+  background-color: #F7A623;
+  border:none;
+}
+.el-button--yellow:hover {
+  color: #fff;
+  background-color: #e99823;
+}
+.el-button--yellow:focus {
+  color: #fff;
+  background-color: #e99823;
+}
 .el-button--custom {
   color: #fff;
   background-color: rgba(255,255,255,0.1);
   border:none;
   width: 250px;
 }
+.el-switch__label * {
+  font-family: "PingFang SC";
+  font-size: 10px;
+}
+.custom-switch .el-switch__label {
+  color: #2C333B;
+}
+.custom-switch .el-switch__label.is-active{
+  color: #ffffff;
+}
+.el-button--warning.is-plain {
+  color: #ffffff;
+  background: transparent;
+  border-color: #ffffff;
+}
 @media (min-width: 768px) {
   .custom-all-bets .el-tabs__item {
     font-size: 18px;
     font-weight: bold;
+    color: #4e5963;
   }
   .custom-invite {
     width: 480px;
@@ -259,6 +289,7 @@ body {
   .custom-all-bets .el-tabs__item {
     font-size: 15px;
     font-weight: bold;
+    color: #4e5963;
   }
   .custom-invite {
     width: 340px;

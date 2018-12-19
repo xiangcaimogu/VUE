@@ -291,7 +291,7 @@ export default {
 }
 .nav-top {
   width: 100%;
-  background-color: #1C233F;
+  background-color: #3A434C;
 }
 
 .nav-items li>.el-select{
@@ -308,8 +308,7 @@ export default {
   line-height: 60px;
 }
 .content-box {
-  background-color: #161933;
-  /*background: linear-gradient(to top right, #4e3995 , #33a08f);*/
+  background-color: #2C333B;
   min-height: 860px;
   padding-bottom: 50px;
   position: relative;
