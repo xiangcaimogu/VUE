@@ -483,12 +483,12 @@ export default {
       return 'custom-bets-cell'
     },
     handleBetRowMyClass ({row, rowIndex}){
-      // console.log(row)
-      // if(row.data.money==''){
-      //   return 'custom-betslost-row'
-      // }else {
+      console.log(row)
+      if(row.money==''){
+        return 'custom-betslost-row'
+      }else {
         return 'custom-betswin-row'
-      // }
+      }
     },
     onSubmit() {
       console.log('submit!');
