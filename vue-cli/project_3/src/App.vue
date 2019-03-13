@@ -31,7 +31,7 @@ export default {
     }
   },
   // watch: {
-  //   selected (newV, oldV) {
+  //   selected (newV, oldV) {//监听的selected值在
   //     console.log(this)
   //     console.log(this.$router)
   //     this.$router.push({

@@ -9,13 +9,15 @@
       <div>
         <ul>
           <li v-for="img in imgs" :key="img.id">
-            <a href="">
-              <img :src="img.img_url" alt="">
-              <p>
-                <span>{{img.title}}</span><br>
-                <span>{{img.zhaiyao}}</span>
-              </p>
-            </a>
+            <router-link :to="{name:'photo.detail',query:{id:img.id} }">
+              <a href="">
+                <img :src="img.img_url" alt="">
+                <p>
+                  <span>{{img.title}}</span><br>
+                  <span>{{img.zhaiyao}}</span>
+                </p>
+              </a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -31,8 +33,8 @@ export default {
       categorys:[]
     }
   },
+  //组件获取之后执行的函数，但是改变当前路由参数是不能重新加载组件的，所以此函数不会重新触发
   created() {
-    //组件获取之后执行的函数，但是改变当前路由是不能重新加载组件的
     //获取路由参数
     //通过URL拼接参数发起请求
     //获取数据
@@ -58,7 +60,13 @@ export default {
       this.$axios.get('getimages/'+categoryId)
         .then(res=>{
           this.imgs=res.data.message
-        })
+        }).catch(err=>{
+          this.$toast({
+            message: 'Upload Complete',
+            position: 'bottom',
+            duration: 5000
+          });
+      })
     }
   },
   beforeRouteUpdate (to, from, next) {

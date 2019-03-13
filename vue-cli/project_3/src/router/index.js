@@ -12,7 +12,7 @@ import Shopcart from '@/components/shopcart/shopcart'
 import NewsList from '@/components/News/NewsList'
 import NewsDetail from '@/components/News/NewsDetail'
 import PhotoList from '@/components/Photo/PhotoList'
-
+import PhotoDetail from '@/components/Photo/PhotoDetail'
 Vue.use(Router)
 
 // 注册全局组件,给vue注册全局组件和属性
@@ -58,8 +58,13 @@ export default new Router({
     },
     {
       name:'photo.list',
-      path:'/photo/list/:categoryId',
+      path:'/photo/list/:categoryId',//更换路由参数，但是调用的组件没有改变，create函数不会触发，但是能触发路由组件内守卫beforerouteupdata（）{}
       component:PhotoList
+    },
+    {
+      name:'photo.detail',
+      path:'/photo/detail',
+      component:PhotoDetail
     }
   ]
 })
