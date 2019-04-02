@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="content">
+</div>
+<a href="#/login">登录</a>
+<a href="#/register">注册</a>
+</body>
+<script>
+    div=document.getElementById('content')
+   window.addEventListener('hashchange',function () {//hashchange，哈希改变事件
+       switch (location.hash){
+           case '#/login':
+               div.innerHTML='<h1>登录页面</h1>';
+               break;
+           case '#/register':
+               div.innerHTML='<h1>注册页面</h1>'
+       }
+   })
+</script>
+</html>

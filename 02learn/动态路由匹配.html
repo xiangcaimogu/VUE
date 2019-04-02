@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script>
+    var comDesc = {
+        data(){
+            return {
+                msg:''
+            }
+        },
+        template: `
+            <div>{{msg}}</div>
+        `,
+        create(){
+        },
+        watch:{
+            '$route' (to,from){
+                this.msg=to.params.id
+            }
+        }
+    }
+    var Timeline = {
+        template: `
+            <div>
+            <router-link :to="{name:'comDesc',params:{id:'frontend'}}">前端</router-link>
+            <router-link :to="{name:'comDesc',params:{id:'backend'}}">后端</router-link>
+            <router-view></router-view>
+</div>
+        `
+    }
+    var Pins = {
+        template: `
+            <div>我是费电</div>
+        `
+    }
+    var router = new VueRouter({
+        routes: [
+            {
+                path: '/timeline',
+                component: Timeline,
+                children: [
+                    {
+                        name: 'comDesc',
+                        path: '/timeline/:id',
+                        component: comDesc,
+                    }
+                ]
+            }, {
+                path: '/pins',
+                component: Pins
+            },
+        ]
+    })
+    var App = {
+        template: `
+           <div>
+           <router-link to="/timeline">首页</router-link>
+           <router-link to="/pins">费电</router-link>
+           <router-view></router-view>
+</div>
+        `
+    }
+
+    new Vue({
+        el: "#app",
+        router,
+        template: '<app/>',
+        components: {
+            App
+        }
+    })
+</script>
+</html>

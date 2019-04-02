@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+</div>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        template: `<div>
+        <input type="text" v-model="myValue"></input>
+            <span v-show="myValue=='zhu'">v-model双向数据绑定</span>
+        </div>`,
+        //v-model只有value属性的元素使用
+        //动态数据的声明
+        data: function () {//也可以是变量
+            return {
+                //template中使用的数据
+                myValue: '1234'
+            }
+        }
+    })
+</script>
+</html>

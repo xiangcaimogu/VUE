@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script>
+    var App={
+        template:`
+        <div>
+            <button @click="sendAjax"></button>
+      </div>
+        `,
+        data:function () {
+            return{
+
+            }
+        },
+        methods:{
+            sendAjax:function (){
+                //配置拦截器
+                //做一个token
+                this.$axios.interceptors.request.use((config)=> {
+                    console.log(config)
+                    //设置请求头，类似cookie
+                    var token =localstorage.getItem('token');
+                    if(token){
+                        config.headers['token',token];//再设置添加请求头token属性
+                    }
+                    return config
+                }) ;
+                //相应拦截器
+                this.$axios.interceptors.response.use((res) =>{
+                    //先是获取服务器的响应头
+                    if(res.data.token)
+                    var token=res.data.token;
+                    localstorage.setItem('token',token);
+
+                    console.log(res)
+                    return res
+                });
+                this.$axios.defaults.baseURL='http://10.4.2.100'
+                this.$axios.get('/',{
+                    transformPesponse:function (res) {
+                        return res
+                        console.log(res)
+                    }
+                }).then(res=>{
+                    console.log(res)
+                }).catch(err=>{
+                    console.log(err)
+                })
+            }
+        }
+    }
+    Vue.prototype.$axios=axios
+    var vm=new Vue({
+        el:'#app',
+        components:{
+            app:App
+        },
+        template:'<app/>'
+    })
+</script>
+</html>

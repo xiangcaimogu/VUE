@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+</div>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        template: `<div>
+                    <input type="text" v-bind:value="myVlue">\n<br>
+                    <button v-on:click="myVlue='qwe'">点击改变myvlue变量</button>\n<br>
+                    <button v-on:click="myVlue=789">点击改变myvlue变量</button>\n<br>
+
+        </div>`,
+        //动态数据的声明
+        data: function () {//也可以是变量
+            return {
+                //template中使用的数据
+               myVlue:'1234'
+            }
+        }
+    })
+</script>
+</html>

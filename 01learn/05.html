@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+</div>
+<style>
+    .A{
+        background:red ;
+    }.B{
+        background:blue ;
+    }.C{
+        background:yellow ;
+    }
+</style>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        template:'<div>' +
+        // '<ul>' +
+        // '<li v-for="k in mylist" :class="k.myClass">{{k.name}}</li>' +
+        // '</ul>' +
+        '<ul>' +
+        '<li v-for="(v, key, index) in mylist2">{{v}}</li>' +
+        '</ul></div>',
+        //v-for数组：（k ,index）in list
+        //动态数据的声明
+        data: function () {//也可以是变量
+            return {
+                mylist: [{name:'张三',myClass:'A'},{name:'李四',myClass:'B'},{name:'王五',myClass:'C'}],
+                mylist2:{'A':'a','S':'s','T':'t','D':'d','W':'w'}
+            }
+        }
+    })
+</script>
+</html>

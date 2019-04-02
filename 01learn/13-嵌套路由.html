@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script>
+    var Woman = {
+        template:
+            `<div>
+                欢迎女士...
+            </div>`
+    }
+    var Man = {
+        template:
+            `<div>
+                欢迎男士...
+            </div>`
+    }
+    var Login = {
+        template:
+            `<div>
+                <h5>我是导航</h5>
+                <router-link :to="{name:'login.woman'}">女士</router-link>
+                <router-link :to="{name:'login.man'}">男士</router-link>
+                <router-view></router-view>
+            </div>`
+
+    };
+    var Register = {
+        template:
+            `<div>
+                <h5>我是注册页</h5>
+                <router-view></router-view>
+            </div>`
+    }
+    Vue.use(VueRouter)
+
+    var router = new VueRouter({
+        routes: [{
+
+            name: 'login',
+            path: '/login',         //配置路径
+            component: Login,      //配置组件内容
+
+            children: [{
+                name: 'login.woman',
+                path: 'woman',         //配置路径
+                component: Woman,
+            }, {
+                name: 'login.man',
+                path: 'man',         //配置路径
+                component: Man,
+            }]
+        }, {
+            name: 'register',
+            path: '/register',         //配置路径
+            component: Register        //配置组件内容
+        },]
+    })
+
+    var App = {
+        template: `
+        <div>
+            <router-link :to="{name:'login'}">登录</router-link>
+            <router-link :to="{name:'register'}">注册</router-link>
+            <router-view></router-view>
+        </div>`
+    }
+
+    //4.将配置好的路由对象关联到Vue实例中
+    new Vue({
+        el: "#app",
+        router: router,//缺少这个出错匹配未定义 matched' of undefined"
+        components: {
+            app: App
+        },
+        template: '<app/>'
+    });
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+</div>
+
+</body>
+<script>
+    //slot内置组件传递父级的DOM元素到组件里面，父级多次调用组件，组件存在多个插槽，对应的slot属性名对应slot的name名
+    var MySlot={
+        template:`<li>
+        <slot name="one"></slot>
+        <slot name="two"></slot>
+        </li>`
+    }
+    Vue.component('my-slot',MySlot)
+    var App = {
+        template: '<div>' +
+            '<my-slot>' +
+                '<h1 slot="one"><p>我是第一个插槽</p></h1>' +
+                '<h1 slot="two"><p>我是第二个插槽</p></h1>' +
+            '</my-slot>'+
+            '<my-slot>' +
+                '<h1 slot="two"><p>我是第二个插槽</p></h1>' +
+            '</my-slot>'+
+        '           </div>'
+
+    };
+    new Vue({
+        //data就不在这个组件对象中写了（启动组件）
+        el: "#app",
+        components: {//声明要用的组件们
+            //key是组件名，value是组件对象
+            app: App
+        },
+        template: '<app/>'//组件入口
+    });
+</script>
+</html>

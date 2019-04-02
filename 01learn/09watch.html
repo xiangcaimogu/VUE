@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+</div>
+
+</body>
+<script>
+    var App = {
+        template: `<div>
+                       <input type="text" v-model="myText">
+                       <button @click="stus[0].name='rose'">监视复杂数据</button>
+                    </div>`,
+        data: function () {
+            return {
+                myText: '我是中国人',
+                stus: [{name: 'jack'}]
+            }
+        },
+        watch: {
+            stus:{
+              deep:true,
+              handler:function (newV,oldV) {
+                  console.log(newV)
+                  console.log(oldV)
+                  console.log("监视复杂数据类型成功")
+              }
+            },
+            myText: function (newV, oldV) {
+                console.log(newV)
+                console.log(oldV)
+            }
+        }
+    };
+    new Vue({
+        el: "#app",
+        components: {//声明要用的组件们
+            app: App
+        },
+        template: '<app/>'//组件入口
+    });
+</script>
+</html>

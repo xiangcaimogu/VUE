@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+</div>
+
+</body>
+<script>
+    Vue.component('my-btn',{//全局组件不需要每次都components去声明
+        template:`<button style="background: red">红色的按钮</button>`
+    })
+    var MyFooter = {
+        template: `<div>
+                    我是footer组件
+                    <my-btn/>
+                    </div>`
+    }
+    var MyHeader = {
+        template: `<div>
+                    我是header组件
+                    <my-btn/>
+                    </div>`
+    }
+    var App = {
+        components: {//声明需要的组件们
+            'my-header': MyHeader,
+            'my-footer': MyFooter,
+        },
+        template: `<div>
+       <my-header></my-header><br>
+       <my-btn></my-btn>
+       <my-footer></my-footer>
+                 </div>`//组件入口
+
+    };
+    new Vue({
+        //data就不在这个组件对象中写了（启动组件）
+        el: "#app",
+        components: {//声明要用的组件们
+            //key是组件名，value是组件对象
+            app: App
+        },
+        template: '<app/>'//组件入口
+    });
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script>
+    console.log(VueRouter)
+    var Login = {
+        template: '' +
+        '<h1>我是登录页</h1>'
+    };
+    var Register = {
+        template: '' +
+        '<h1>我是注册页</h1>'
+    }
+    //1.安装插件
+    Vue.use(VueRouter)
+    //2.创建一个路由对象
+    var router = new VueRouter({
+        //3.配置路由对象
+        routes: [{
+            path: '/login',         //配置路径
+            component: Login        //配置组件内容
+        },{
+            path: '/register',         //配置路径
+            component: Register        //配置组件内容
+        },]
+    })
+
+    //5.指定路由改变局部的位置
+    var App = {
+        template:
+        '<div>' +
+            // vue-router内置组件
+            '<router-link to="/login">登录</router-link>'+
+            '<router-link to="/register">注册</router-link>'+
+        '<router-view></router-view>' +
+        '</div>'
+    }
+
+    //4.将配置好的路由对象关联到Vue实例中
+    new Vue({
+        el: "#app",
+        router:router,//缺少这个出错匹配未定义 matched' of undefined"
+        components: {
+            app: App
+        },
+        template: '<app/>'
+    });
+</script>
+</html>

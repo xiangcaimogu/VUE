@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+</div>
+
+</body>
+<script>
+    //在组件的DOM部分，任意的标签写上ref='xxxx"
+    var TempCoponent={
+        template:`<div>我是子组件</div>`
+    }
+    Vue.component('temp',TempCoponent)
+    var App = {
+        template: '<div>' +
+            '<input type="text" v-if="isShow" ref="put">'+
+        '           </div>',
+       data:function(){
+            return{
+                isShow:false,
+            }
+           },
+        mounted: function () {//装载之后
+
+           this.isShow=true;
+           this.isShow=false;
+           this.isShow=true;
+           //这里思考，这里Vue会根据最终的实际值，进行DOM的操作
+
+           this.$nextTick(function () {//页面vue真正渲染DOM到页面以后，才做的事
+               this.$refs.put.focus()
+           })
+        },
+    };
+    new Vue({
+        el: "#app",
+        components: {//声明要用的组件们
+            //key是组件名，value是组件对象
+            app: App
+        },
+        template: '<app/>'//组件入口
+    });
+</script>
+</html>

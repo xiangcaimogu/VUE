@@ -1,0 +1,336 @@
+a {
+  text-decoration: none;
+}
+ul,ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0px;
+}
+.center-view .touzhu .el-input__inner ,.center-view .touzhu .el-input-group__append {
+  border-radius: 0;
+  background-color: transparent;
+  border:none;
+}
+.custom-slider .el-slider__runway {
+  background-color: #3A434C;
+  height: 14px;
+  border-radius: 8px;
+}
+.custom-slider .el-slider__bar {
+  background-color: #F84447;
+  height: 14px;
+  border-radius: 8px;
+  /*webkit-box-shadow: 0 0 7px #4CE8DE;*/
+  /*box-shadow: 0 0 7px #4CE8DE;*/
+}
+.custom-slider .el-slider__button-wrapper {
+  top: -11px;
+}
+.custom-slider .el-slider__button {
+  width: 22px;
+  height: 22px;
+  border: none;
+}
+.custom-slider .el-slider__button.hover ,.custom-slider .el-slider__button.dragging {
+  transform: none;
+}
+.custom-slider .el-slider__button:after {
+   content: "";
+   display: block;
+   height: 28px;
+   width: 28px;
+   position: absolute;
+   left: 4px;
+   top: 4px;
+   border-radius: 50%;
+   -webkit-box-shadow: 0 0 12px #fff inset;
+   box-shadow: 0 0 12px #fff inset;
+}
+.custom-rank-row {
+  background-color: #3A434C!important;
+  color: #ffffff;
+  text-align: center;
+  font-family: "PingFang SC";
+}
+.custom-betswin-row {
+  background-color: #1D3332!important;
+  color: #ffffff;
+  text-align: center;
+  font-family: "PingFang SC";
+}
+.custom-betslost-row {
+  background-color: #30232B!important;
+  color: #ffffff;
+  text-align: center;
+  font-family: "PingFang SC";
+}
+.custom-rank-header-row {
+  background-color: #313A41!important;
+  color: #ffffff;
+  text-align: center !important;
+  border: 1px solid #313A41 !important;
+  font-weight: 400;
+}
+.custom-rank-header-cell {
+  font-family: "PingFang SC";
+}
+.custom-ranking-cell {
+  color: #F84447 !important;
+  font-weight: 700;
+  text-align: center!important;
+  border-bottom: 4px solid #313A41!important;
+}
+.custom-ranks-cell {
+  color: #d8d8d8 !important;
+  text-align: center!important;
+  border-bottom: 4px solid #313A41!important;
+}
+.custom-rank-cell {
+  text-align: center!important;
+  border-bottom: 4px solid #313A41!important;
+}
+.custom-bets-cell {
+  text-align: center!important;
+  border-bottom: 1px solid #313A41!important;
+}
+.custom-rank-row:hover>td {
+  background-color: #3A434C !important;
+}
+.custom-betswin-row:hover>td {
+  background-color: #1D3332 !important;
+}
+.custom-betslost-row:hover>td {
+  background-color: #30232B !important;
+}
+.custom-all-bets .el-tabs__nav-wrap::after {
+  background-color: #313A41;
+}
+.custom-ranking-box .el-table::before {
+  background-color: #313A41;
+}
+.ctrl-board .el-input__inner {
+  background-color: #3A434C;
+  color: #ffffff;
+  border: none;
+}
+.el-select-dropdown {
+  background-color: #3A434C;
+  border: none;
+}
+.el-select-dropdown .el-select-dropdown__list .selected{
+  background-color: #3A434C;
+  color: #ffffff;
+}
+.el-select-dropdown .el-select-dropdown__list .hover{
+  background-color: #3A434C;
+  color: #ffffff;
+}
+.el-popper .popper__arrow , .el-popper .popper__arrow::after {
+  border-bottom-color: #3b435c!important;
+}
+.el-select-dropdown .el-select-dropdown__list .el-select-dropdown__item{
+  background-color: #3A434C;
+  color: #d3d3d3;
+}
+.el-select-dropdown .el-select-dropdown__list .el-select-dropdown__item:hover{
+  background-color: #3A434C;
+  color: #ffffff;
+}
+.nav-items li .el-select .el-input__inner {
+  background-color: #48515A;
+  color: #ffffff;
+  border: none;
+}
+/*.el-table--scrollable-y .el-table__body-wrapper {*/
+
+/*}*/
+.custom-ranking-box .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar {/*滚动条整体样式*/
+  width: 6px;     /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+.custom-ranking-box .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2);
+}
+.custom-ranking-box .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-track {/*滚动条里面轨道*/
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+}
+.custom-ranking-box .el-table th {
+  background-color: #313A41 !important;
+}
+.custom-all-bets .el-tabs__item:hover {
+  color: #fff;
+}
+.custom-all-bets .el-tabs__item.is-active {
+  color: #fff;
+}
+.custom-all-bets .el-tabs__active-bar {
+  background-color: white;
+}
+.custom-ranking-box .el-table tr:first-child td:first-child {
+  background-image: url("../../assets/img/one.png");
+  background-repeat: no-repeat;
+  background-size: 35px auto;
+  background-position:center ;
+}
+.custom-ranking-box .el-table tr:nth-child(2) td:first-child {
+  background-image: url("../../assets/img/two.png");
+  background-repeat: no-repeat;
+  background-size: 30px auto;
+  background-position:center ;
+}
+.custom-ranking-box .el-table tr:nth-child(3) td:first-child {
+  background-image: url("../../assets/img/three.png");
+  background-repeat: no-repeat;
+  background-size: 30px auto;
+  background-position:center ;
+}
+
+/************************
+----------nav-dialog----------
+************************/
+
+.custom-play .el-dialog__header span ,.custom-play .el-dialog__header i{
+  color: #ffffff;
+}
+.custom-invite .el-dialog__header span ,.custom-invite .el-dialog__header i{
+  color: #ffffff;
+}
+.custom-dividend .el-dialog__header span ,.custom-dividend .el-dialog__header i{
+  color: #ffffff;
+}
+.login-form .el-dialog__header span ,.login-form .el-dialog__header i{
+  color: #ffffff;
+}
+.login-button .el-dialog ,.nav-items .el-dialog {
+  background: linear-gradient(to top right, #533A9C , #35AA95);
+  opacity: 0.95;
+}
+.nav-items .custom-dividend .el-tabs__item {
+  color: #ffffff;
+}
+.custom-record-cell {
+  border-bottom: 1px solid rgba(255,255,255,0.1)!important;
+}
+.custom-record-row {
+  background-color: transparent!important;
+}
+.custom-record-row:hover>td {
+  background-color: transparent !important;
+}
+.custom-record-header-cell, .custom-record-header-row {
+  background-color: transparent!important;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255,255,255,0.1)!important;
+}
+.record .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar {/*滚动条整体样式*/
+  width: 6px;     /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+.record .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+  border-radius: 10px;
+  background-color:rgba(255,255,255,0.6);
+}
+.record .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-track {/*滚动条里面轨道*/
+  border-radius: 10px;
+  background-color:rgba(255,255,255,0.1);
+}
+.record .el-table::before {
+  background-color: transparent;
+}
+.login-form {
+  width: 360px;
+}
+.login-form .el-form-item .el-form-item__label{
+  color: #ffffff;
+}
+.login-form .el-dialog__body {
+  padding-bottom: 0;
+}
+.login-form .el-input .el-input__inner{
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  border: none;
+  color: #ffffff;
+  background-color: rgba(255,255,255,0.1)!important;
+}
+.el-button--yellow {
+  color: #fff;
+  background-color: #F7A623;
+  border:none;
+}
+.el-button--yellow:hover {
+  color: #fff;
+  background-color: #e99823;
+}
+.el-button--yellow:focus {
+  color: #fff;
+  background-color: #e99823;
+}
+.el-button--custom {
+  color: #fff;
+  background-color: rgba(255,255,255,0.1);
+  border:none;
+  width: 250px;
+}
+.el-switch__label * {
+  font-family: "PingFang SC";
+  font-size: 10px;
+}
+.custom-switch .el-switch__label {
+  color: #2C333B;
+}
+.custom-switch .el-switch__label.is-active{
+  color: #ffffff;
+}
+.el-button--warning.is-plain {
+  color: #ffffff;
+  background: transparent;
+  border-color: #ffffff;
+}
+@media (min-width: 768px) {
+  .custom-all-bets .el-tabs__item {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4e5963;
+  }
+  .custom-invite {
+    width: 480px;
+  }
+  .custom-play {
+    width: 650px;
+  }
+  .custom-dividend {
+    width: 560px;
+  }
+  .custom-dividend .el-dialog__body {
+    padding: 0px 25px 20px;
+  }
+}
+@media (max-width: 767px) {
+  .custom-all-bets .el-tabs__item {
+    font-size: 15px;
+    font-weight: bold;
+    color: #4e5963;
+  }
+  .custom-invite {
+    width: 340px;
+  }
+  .custom-play {
+    width: 350px;
+  }
+  .custom-dividend {
+    width: 350px;
+  }
+  .custom-dividend .el-dialog__body {
+    padding: 0px 10px 10px;
+  }
+  .el-message-box {
+    width: 350px;
+  }
+}

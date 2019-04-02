@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+</div>
+
+</body>
+<script>
+    //在组件的DOM部分，任意的标签写上ref='xxxx"
+    var TempCoponent={
+        template:`<div>我是子组件</div>`
+    }
+    Vue.component('temp',TempCoponent)
+    var App = {
+        template: '<div>' +
+            '           <temp ref="tmp"></temp>'+
+        '               <button ref="btn">我是按钮</button>'+
+        '           </div>',
+        beforeCreate: function () {//这里不能拿到数据，只能初始化事件
+            console.log(this.$refs.btn)
+        },
+        created: function () {//拿到data
+            console.log(this.$refs.btn)
+        },
+        beforeMount: function () {//发生装载 替换<div id="app"></div>之前
+            console.log(this.$refs.btn)
+        },
+        mounted: function () {//装载之后
+            console.log(this.$refs.btn)
+            console.log(this.$refs.tmp)
+        },
+    };
+    new Vue({
+        el: "#app",
+        components: {//声明要用的组件们
+            //key是组件名，value是组件对象
+            app: App
+        },
+        template: '<app/>'//组件入口
+    });
+</script>
+</html>
