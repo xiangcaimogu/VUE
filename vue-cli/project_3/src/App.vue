@@ -40,7 +40,7 @@ export default {
   //   }
   // },
   methods: {
-    changeHash(){
+    changeHash () {
       this.$nextTick(function () {
         console.log(this.selected)
         this.$router.push({

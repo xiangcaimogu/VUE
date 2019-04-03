@@ -10,25 +10,25 @@
   </mt-loadmore>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        topStatus: '',
-        list:[]
-        // ...
-      };
-    },
-    methods: {
-      handleTopChange(status) {
-        this.topStatus = status;
-      },
-      loadTop() {
-      //... 加载更多数据
-        this.$refs.loadmore.onTopLoaded();
-      }
+export default {
+  data () {
+    return {
+      topStatus: '',
+      list: []
+      // ...
     }
+  },
+  methods: {
+    handleTopChange (status) {
+      this.topStatus = status
+    },
+    loadTop () {
+    // ... 加载更多数据
+      this.$refs.loadmore.onTopLoaded()
+    }
+  }
 
-  };
+};
 </script>
 
 <style scoped>
