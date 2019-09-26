@@ -38,9 +38,9 @@ Vue.prototype.$axios = Axios
 
 // 配置请求拦截器
 Axios.interceptors.request.use(function (config) {
-  MintUI.Indicator.open({
-    text: '玩命加载...'
-  })
+  // MintUI.Indicator.open({
+  //   text: '玩命加载...'
+  // })
   return config
 })
 // 配置相应拦截器

@@ -25,7 +25,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: { name: 'home'}
+      redirect: {name: 'home'}
     },
     {
       path: '/home',
@@ -48,29 +48,29 @@ export default new Router({
       component: Shopcart
     },
     {
-      name:'news.list',
-      path:'/news/list',
-      component:NewsList
+      name: 'news.list',
+      path: '/news/list',
+      component: NewsList
     },
     {
-      name:'news.detail',
-      path:'/news/detail',
-      component:NewsDetail
+      name: 'news.detail',
+      path: '/news/detail',
+      component: NewsDetail
     },
     {
-      name:'photo.list',
-      path:'/photo/list/:categoryId',//更换路由参数，但是调用的组件没有改变，create函数不会触发，但是能触发路由组件内守卫beforerouteupdata（）{}
-      component:PhotoList
+      name: 'photo.list',
+      path: '/photo/list/:categoryId', //更换路由参数，但是调用的组件没有改变，create函数不会触发，但是能触发路由组件内守卫beforerouteupdata（）{}
+      component: PhotoList
     },
     {
-      name:'photo.detail',
-      path:'/photo/detail',
-      component:PhotoDetail
+      name: 'photo.detail',
+      path: '/photo/detail',
+      component: PhotoDetail
     },
     {
-      name:'goods.list',
-      path:'/goods/list',
-      component:GoodsList
+      name: 'goods.list',
+      path: '/goods/list',
+      component: GoodsList
     }
   ]
 })

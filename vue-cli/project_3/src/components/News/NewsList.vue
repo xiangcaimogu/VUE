@@ -22,22 +22,21 @@
 </template>
 
 <script>
-    export default {
-        name: "news-list",
-      data() {
-          return{
-            newslist:''
+export default {
+  name: "news-list",
+  data () {
+    return {
+      newslist: ''}
+  },
+  created () {
+    this.$axios.get('getnewslist').then(
+      res => {
+        console.log(res)
+        this.newslist = res.data.message
       }
-      },
-      created() {
-          this.$axios.get('getnewslist').then(
-            res=>{
-              console.log(res)
-              this.newslist=res.data.message
-            }
-          )
-      }
-    }
+    )
+  }
+}
 </script>
 
 <style scoped>

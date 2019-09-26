@@ -77,7 +77,7 @@ export default {
     console.log(to)
     this.loadImageByCategoryId(to.params.categoryId);
     next()
-  },
+  }
 }
 </script>
 
