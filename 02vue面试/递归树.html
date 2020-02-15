@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    var myData = [{
+        'id': '1',
+        'menuName': '基础管理',
+        'menuCode': '10',
+        'children': [
+            {
+                'menuName': '用户管理',
+                'menuCode': '11',
+            },
+            {
+                'menuName': '角色管理',
+                'menuCode': '12',
+                'children': [
+                    {
+                        'menuName': '管理员',
+                        'menuCode': '121',
+                    },
+                    {
+                        'menuName': 'CEO',
+                        'menuCode': '122',
+                    },
+                    {
+                        'menuName': 'CFO',
+                        'menuCode': '123',
+                    },
+                ]
+            },
+            {
+                'menuName': '权限管理',
+                'menuCode': '13',
+            },
+        ]
+    },
+    {
+        'id': '2',
+        'menuName': '商品管理',
+        'menuCode': '',
+    },
+    {
+        'id': '3',
+        'menuName': '订单管理',
+        'menuCode': '30',
+        'children': [
+            {
+                'menuName': '订单管理',
+                'menuCode': '31',
+            },
+            {
+                'menuName': '退货列表',
+                'menuCode': '32',
+                'children': []
+            },
+        ]
+    },
+    ]
+    var mytree = {
+        props: ['arr', 'level'],
+        name: 'mytree',
+        created(){
+            this.arr.forEach(dir=>{
+                this.$set(dir,'showChild',false)
+            })
+        },
+        template: `<div>
+            <div :style="level!==1 ? 'margin:10px 0 0 50px' : ''" v-for="(item,index) in arr">
+                <span @click="show(index)">{{item.menuName}}</span>
+                <mytree v-if='item.showChild && item.children' :arr='item.children' :level="level+1"/>
+                </div>
+            </div>`,
+            methods:{
+                show(ids){
+                    this.$set(this.arr[ids],'showChild',!this.arr[ids].showChild)
+                    // this.arr[ids].showChild = true
+                }
+            }
+    }
+    Vue.component(mytree.name, mytree)
+    var App = {
+        name: 'app',
+        data() {
+            return {
+                parentArr: myData
+            }
+        },
+        template: `<mytree :arr='parentArr' :level=1></mytree>`
+    }
+    new Vue({
+        el: '#app',
+        components: {//声明要用的组件们
+            app: App
+        },
+        template: `<app/>`
+    })
+</script>
+
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 </head>
 <body>
 <div id="app">
@@ -27,6 +27,7 @@
         computed: {
             result: function () {//凡是函数内部有this点相关属性改变都会触发当前函数
                 //监视对象写在了函数内部
+                console.log("aa")
                 return ((this.a-0) + (this.b-0) + (this.c-0))
             }
         }
