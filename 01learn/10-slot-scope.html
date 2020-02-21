@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+
+</body>
+<script>
+    var child = {
+        template: `
+        <div>
+            <p class="child">
+            <h3>这里是子组件</h3>
+            // 作用域插槽
+            <slot :data="data"></slot>
+            </p>
+        </div>`,
+        data: function () {
+            return {
+                data: ['zhangsan', 'lisi', 'wanwu', 'zhaoliu', 'tianqi', 'xiaoba']
+            }
+        }
+    }
+    Vue.component('child', child)
+    var App = {
+        template: `
+        <div>
+            <p class="father">
+            <h3>这里是父组件</h3>
+            <child>
+                <template slot-scope="user">
+                <ul>
+                    <li v-for="item in user.data">{{item}}</li>
+                </ul>
+                </template>
+            </child>
+            </div>`
+
+    }
+    new Vue({
+        //data就不在这个组件对象中写了（启动组件）
+        el: "#app",
+        components: {//声明要用的组件们
+            //key是组件名，value是组件对象
+            app: App
+        },
+        template: '<app/>'//组件入口
+    });
+</script>
+
+</html>
