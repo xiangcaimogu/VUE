@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <style>
+        input.i911-v-model {
+            color: green;
+            border-radius: 4px;
+            border: 3px solid #36ff7a;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        var SyncInput = {
+            name: "SyncInput",
+            props: {
+                msg: {
+                    type: String,
+                    default: ''
+                }
+            },
+            template: `<div>
+                        <input class="i911-v-model" :value="msg" @input="handleInput">
+                    </div>`,
+            methods: {
+                handleInput(event) {
+                    this.$emit('update:msg', event.target.value)//这里$emit调用的是默认的input
+                }
+
+            }
+        }
+        var App = {
+            // template: `<div><SyncInput :msg.sync="valueSync"></SyncInput><span>{{valueSync}}</span></div>`,
+            template: `<div><SyncInput :msg='valueSync' @update:msg='val=>valueSync=val'></SyncInput><span>{{valueSync}}</span></div>`,
+            data() {
+                return {
+                    valueSync: 'asd'
+                }
+            },
+            components: {
+                SyncInput
+            },
+        }
+        new Vue({
+            el: '#app',
+            template: '<app/>',
+            components: {
+                App
+            }
+        })
+    </script>
+
+</body>
+
+</html>

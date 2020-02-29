@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+    <script>
+        // 通过model_1.html的分析，默认情况下，一个组件上的 v-model 会把 value 用作 prop 且把 input 用作 event。
+        // 所以当我们在一个自定义组件上使用v-model并不能实现双向绑定，因为自定的组件并没有默认的value和input事件，在使用时，我们需要按照上面那样显式的去声明定义这些东西。
+        // 这时，model选项就派上用场了，在定义组件的时候，指定prop的值和监听的事件
+        Vue.component('custom-input', {
+            template: `<input :value='novalue' @change="updateVal($event.target.value)" type='text'></input>`,
+            model: {
+                value: 'novalue',
+                event: 'nochange'
+            },
+            props: ['novalue'],
+            methods: {
+                updateVal(val){
+                    this.$emit('nochange',val)
+                }
+            }
+        });
+        var App = {
+            template: `<div><custom-input v-model='name'></custom-input>
+                <span>{{name}}</span>
+                </div>`,
+            data(){
+                return {
+                    name:'qwe'
+                }
+            }
+        }
+        var app = new Vue({
+            el: '#app',
+            template:"<app/>",
+            components: {
+                App
+            }
+        })
+    </script>
+
+</body>
+
+</html>
