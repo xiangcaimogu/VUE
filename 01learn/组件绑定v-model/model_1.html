@@ -11,15 +11,14 @@
 <body>
     <div id="app">
         // 4.父组件的value值绑定到price
-        <!-- <custom-input :value="price" @input="onInput"></custom-input> -->
-        <custom-input v-model='value'></custom-input>
+        <custom-input :value="value" @input="onInput"></custom-input>
         <span>{{value}}</span>
     </div>
     <script>
         Vue.component('custom-input', {
             // 1.监听input,输入时触发自定义组件内部的updateVal事件
             template: `<input :value='value' @input='updateVal($event.target.value)' type='text'></input>`,
-            // 5.通过props传递，实现父组件值绑定到输入框的value
+            // 5.通过props传递，实现父组件值绑定到子组件输入框的value
             props: ['value'],
             methods: {
                 // 2.触发父组件上的input事件
@@ -33,15 +32,14 @@
             el: '#app',
             data() {
                 return {
-                    price: 'qwe',
                     value:'asd'
                 }
             },
             methods: {
                 // 3.传递过来的值赋给父组件的price变量，实现了输入框到父元素的单向绑定
-                // onInput(val) {
-                //     this.price = val;
-                // }
+                onInput(val) {
+                    this.value = val;
+                }
             }
         })
     </script>
