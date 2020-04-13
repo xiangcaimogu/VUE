@@ -57,7 +57,9 @@
         <router-view></router-view>
         </div>`
     }
-
+//query和params传参的区别,可以console log(this.$route)查看
+// query的参数类似于get的请求，他的url是这样的fullPath: "/mylogin?id=1"。不可以用path来导航路由，只能用name :to="{name:'login',query:{id:1}}"
+//params的fullPath: "/register/abs"。需要在路由配置path时，写/:参数名
     //4.将配置好的路由对象关联到Vue实例中
     new Vue({
         el: "#app",
