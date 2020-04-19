@@ -1,0 +1,4 @@
+keep-alive可以在组件切换时，保存其包裹的组件的状态包括DOM，使其不被销毁，防止多次渲染。
+其拥有两个独立的生命周期钩子函数 actived 和 deactived，使用keep-alive包裹的组件在切换时不会被销毁，而是缓存到内存中并执行 deactived 钩子函数，命中缓存渲染后会执行 actived 钩子函数
+
+created mounted 不会触发
