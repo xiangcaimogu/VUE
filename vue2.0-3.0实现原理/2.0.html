@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <input type="text" v-model="msg">
+    <h1>{{msg}}</h1>
+    <h1 v-html="msg"></h1>
+    <button @click="changeEvent">修改msg</button>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    class Vue {
+        constructor(options) {
+            this.$el = document.getElementById(options.el)
+            this.$options = options
+            this.$watchEvent={}
+            //代理options的data数据
+            this.oberver()
+            this.proxyData()
+            //劫持事件
+            this.compile(this.$el)
+
+        }
+        oberver(){
+            for (let key in this.options.data) {
+                let value = this.$options.data[key]
+                let that=this
+                Object.defineProperty(this.$options.data, key, {
+                    enumerable: true,
+                    configurable: false,
+                    get() {
+                        return value
+                    },
+                    set(val) {
+                        value = val
+                        if(this.$watchEvent[key]){
+                            // 广播 key值的所有事件
+                            that.$watchEvent[key].forEach((item,index)=>{
+                                item.updata()
+                            })
+                        }
+                    }
+                }
+                )
+            }
+        }
+        proxyData() {
+            //循环通过set get 方法来实现代理数据
+            for (let key in options.data) {
+                Object.defineProperty(this, key, {
+                    enumerable: true,
+                    configurable: false,
+                    get() {
+                        return options.data[key]
+                    },
+                    set(val) {
+                        options.data[key] = val
+                    }
+                }
+                )
+            }
+        }
+        compile() {
+            this.$el.childNodes.forEach((node, index) => {
+                if (node.nodeType == 1) {
+                    //元素类型
+                    if(node.hasAttribute('v-html')){
+                        // vmKey：属性的值
+                        let vmKey=node.getAtteribute('v-html').trim()
+                        node.innterHTML=this[vmKey]
+                        let watcher = new Watch(this,vmKey,node,'innerHTML')
+                        if(this.$watchEvent[vmKey]){
+                            this.$watchEvent[vmKey].push(watcher)
+                        }else {
+                            this.$watchEvent[vmKey]=[].push(watcher)
+                        }
+                        node.removeAtteribute('v-html')
+                    }
+
+                }else if(node.nodeType == 3){
+                    //文本类型
+
+                }
+            })
+        }
+    }
+
+    class Watch{
+        constructor(vm,key,node,attr,nType){
+            this.vm = vm;
+            this.key =key;
+            this.node=node
+            this.attr=attr
+        }
+        updata(){
+            this.node[this.attr]=this.vm[this.key]
+        }
+    }
+    let app = new Vue({
+        el: 'app',
+        data: {
+            msg: '123',
+            name: 'asd',
+        }
+
+    })
+</script>
+
+</html>
