@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <template v-if="isFolder">
+            <p v-for="child in childrens">{{child.title}}</p>
+        </template>
+    </div>
+</body>
+<script>
+    new Vue(
+        {
+            el: "#app",
+            data:{
+                    childrens: [
+                        { title: 'foo' },
+                        { title: 'bar' },
+                    ]
+
+            },
+            computed: {
+                isFolder() { //计算childrens的length是否为零
+                    return this.childrens && this.childrens.length > 0
+                }
+            }
+        }
+    )
+    // v-for优先级高于v-if
+    // 如果同时出现，每次渲染都会先执行循环在判断条件，无论如何循环都不可避免，浪费性能
+    // 所以添加template 先判断v-if，在做v-for循环
+</script>
+
+</html>

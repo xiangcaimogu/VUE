@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p v-for="item in items">{{item}}</p>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            items: ['0', '1', '3'],
+        },
+        mounted () {
+            setTimeout(()=>{
+                this.items.splice(2,0,'9')
+            },1000)
+        }
+    })
+    // 相同节点如果没有key，插入'9'时，由于没有key值识别，会直接改变原来值为3节点为9，再最后添加节点3
+    // 如果有key值，就直接再3节点前面添加节点9
+</script>
+
+</html>
